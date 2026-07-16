@@ -1,0 +1,294 @@
+{
+  "collections": [
+    { "slug": "polo-shirts", "name": "Polo Shirts", "tagline": "Classic collared polos for school and beyond", "image": "assets/img/products/polo-short-sleeve.png" },
+    { "slug": "hoodies-jackets", "name": "Hoodies & Jackets", "tagline": "Warm layers built for every season", "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png" },
+    { "slug": "sweatshirts", "name": "Sweatshirts", "tagline": "Everyday pullover comfort", "image": "assets/img/products/sweat-shirt.png" },
+    { "slug": "sweatpants", "name": "Sweatpants", "tagline": "Soft, relaxed-fit bottoms", "image": "assets/img/products/sweat-pants.png" },
+    { "slug": "pants", "name": "Pants", "tagline": "Pull-on trousers for school and play", "image": "assets/img/products/boys-pull-on-pants.png" },
+    { "slug": "joggers", "name": "Joggers", "tagline": "Athletic-fit comfort with cuffed ankles", "image": "assets/img/products/boys-joggers.png" },
+    { "slug": "shorts", "name": "Shorts", "tagline": "Warm-weather essentials", "image": "assets/img/products/pull-on-shorts.png" }
+  ],
+  "products": [
+    {
+      "slug": "junior-polo",
+      "name": "Junior Polo",
+      "style": "GP-3012",
+      "collection": "polo-shirts",
+      "collectionName": "Polo Shirts",
+      "color": "Burgundy",
+      "colorHex": "#7A1E2B",
+      "sizeGroups": [{ "label": "Junior", "sizes": ["S", "M", "L", "XL"] }],
+      "image": "assets/img/products/junior-polo.png",
+      "description": "A premium burgundy polo shirt for children, made from ultra-soft, breathable fabric with a classic collar and button-up front. Designed for all-day comfort at school or casual outings, it holds its color and shape through repeated washes.",
+      "features": ["Ultra-soft, breathable fabric", "Classic collar with button-up front", "Color-fast, easy-care construction", "Short-sleeve design"]
+    },
+    {
+      "slug": "polo-short-sleeve",
+      "name": "Polo Short Sleeve",
+      "style": "BP-6012",
+      "collection": "polo-shirts",
+      "collectionName": "Polo Shirts",
+      "color": "Black",
+      "colorHex": "#1D1F24",
+      "sizeGroups": [
+        { "label": "Youth", "sizes": ["3T", "4T", "XS", "S", "M", "L", "XL", "XXL"] },
+        { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/polo-short-sleeve.png",
+      "description": "A classic black polo shirt featuring premium, ultra-soft fabric with a traditional collar, short sleeves, and a flattering fit. Versatile enough for semi-formal and casual occasions alike.",
+      "features": ["Premium, ultra-soft fabric", "Traditional collar design", "Short-sleeve, tailored fit", "Youth and Men's sizing available"]
+    },
+    {
+      "slug": "polo-long-sleeve",
+      "name": "Polo Long Sleeve",
+      "style": "BP-6012",
+      "collection": "polo-shirts",
+      "collectionName": "Polo Shirts",
+      "color": "White",
+      "colorHex": "#FFFFFF",
+      "sizeGroups": [{ "label": "Unisex", "sizes": ["3T", "4T", "XS", "S", "M", "L", "XL", "XXL"] }],
+      "image": "assets/img/products/polo-long-sleeve.png",
+      "description": "A classic white long-sleeve polo designed for everyday wear and school uniforms. Ultra-soft, breathable fabric with a classic collar and smart button placket, built to keep its shape wash after wash.",
+      "features": ["Breathable, durable fabric", "Classic collar with button placket", "Unisex fit for boys and girls", "Easy-care, shape-retaining"]
+    },
+    {
+      "slug": "mock-neck-with-zipper",
+      "name": "Mock Neck With Zipper",
+      "style": "MN-561",
+      "collection": "hoodies-jackets",
+      "collectionName": "Hoodies & Jackets",
+      "color": "Gray",
+      "colorHex": "#727586",
+      "sizeGroups": [
+        { "label": "Toddler", "sizes": ["3T", "4T"] },
+        { "label": "Youth", "sizes": ["XS", "S", "M", "L", "XL", "XXL"] },
+        { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/mock-neck-with-zipper.png",
+      "description": "Stay cozy and stylish in this versatile gray zip-up fleece jacket. A sleek high collar, convenient front pockets, and comfortably snug elastic cuffs make it ideal for layering during cold weather.",
+      "features": ["Soft fleece fabric", "Mock neck with zipper", "Front pockets", "Elastic cuffs"]
+    },
+    {
+      "slug": "pull-over-hoodie",
+      "name": "Pull Over Hoodie With Kangaroo Pockets",
+      "style": "FH-5000",
+      "collection": "hoodies-jackets",
+      "collectionName": "Hoodies & Jackets",
+      "color": "Navy",
+      "colorHex": "#16305B",
+      "sizeGroups": [
+        { "label": "Youth", "sizes": ["3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] },
+        { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png",
+      "description": "A cozy navy pullover hoodie in ultra-soft, premium fabric with a front kangaroo pocket and adjustable hood. Perfect for everyday wear, from outdoor activities to relaxing at home.",
+      "features": ["Ultra-soft, premium fabric", "Roomy kangaroo pocket", "Adjustable hood", "All-season versatility"]
+    },
+    {
+      "slug": "zipper-hoodie",
+      "name": "Zipper Hoodie With Kangaroo Pockets",
+      "style": "BO-560",
+      "collection": "hoodies-jackets",
+      "collectionName": "Hoodies & Jackets",
+      "color": "Maroon",
+      "colorHex": "#7A1E2B",
+      "sizeGroups": [
+        { "label": "Youth", "sizes": ["3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] },
+        { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.png",
+      "description": "A deep, rich maroon zip-up hoodie offering comfort through ultra-soft, breathable fabric. Features an adjustable hood, spacious front pockets, and a full-length zipper — great for layering or everyday wear.",
+      "features": ["Ultra-soft, breathable fabric", "Full-length zipper", "Adjustable hood", "Spacious front pockets"]
+    },
+    {
+      "slug": "polar-fleece",
+      "name": "Polar Fleece",
+      "style": "PF-562",
+      "collection": "hoodies-jackets",
+      "collectionName": "Hoodies & Jackets",
+      "color": "Dark Gray",
+      "colorHex": "#5B6472",
+      "sizeGroups": [
+        { "label": "Boys", "sizes": ["XS", "S", "M", "L", "XL", "XXL"] },
+        { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/polar-fleece.png",
+      "description": "Cozy full-zip outerwear for everyday comfort. Ultra-soft premium fleece delivers exceptional warmth in a lightweight construction, with a full-length front zipper and side pockets for outdoor activities or casual wear.",
+      "features": ["Premium fleece fabric", "Full-length front zipper", "Side pockets", "Lightweight warmth"]
+    },
+    {
+      "slug": "winters-jacket",
+      "name": "Winters Jacket",
+      "style": "JKT-561",
+      "collection": "hoodies-jackets",
+      "collectionName": "Hoodies & Jackets",
+      "color": "Black",
+      "colorHex": "#1D1F24",
+      "sizeGroups": [
+        { "label": "Youth", "sizes": ["XS", "S", "M", "L", "XL", "XXL"] },
+        { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/winters-jacket.png",
+      "description": "A sleek black hooded windbreaker with full-length zip closure, two practical front pockets, and a modern, minimalist look. Lightweight, water-resistant fabric protects against wind and light rain while layering easily into everyday or outdoor wear.",
+      "features": ["Lightweight, water-resistant fabric", "Hooded design", "Full-length zip closure", "Wind and light rain protection"]
+    },
+    {
+      "slug": "sweat-shirt",
+      "name": "Sweat Shirt",
+      "style": "FS-5000",
+      "collection": "sweatshirts",
+      "collectionName": "Sweatshirts",
+      "color": "Black",
+      "colorHex": "#1D1F24",
+      "sizeGroups": [
+        { "label": "Youth", "sizes": ["2/3", "3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] },
+        { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/sweat-shirt.png",
+      "description": "A classic unisex pullover crewneck sweatshirt crafted from ultra-soft, durable fabric with ribbed cuffs and hem for a secure, flattering fit. Great for layering or wearing on its own.",
+      "features": ["Ultra-soft, durable fabric", "Ribbed cuffs and hem", "Unisex crewneck fit", "Layer-friendly year-round"]
+    },
+    {
+      "slug": "sweat-pants",
+      "name": "Sweat Pants",
+      "style": "FP-5000",
+      "collection": "sweatpants",
+      "collectionName": "Sweatpants",
+      "color": "Maroon",
+      "colorHex": "#7A1E2B",
+      "sizeGroups": [{ "label": "Youth", "sizes": ["2/3", "3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] }],
+      "image": "assets/img/products/sweat-pants.png",
+      "description": "Maroon sweatpants crafted from ultra-soft, breathable fabric with an adjustable drawstring waist and relaxed pockets. A modern silhouette suitable for home relaxation, gym activities, or errands.",
+      "features": ["Ultra-soft, breathable fabric", "Adjustable drawstring waist", "Relaxed pockets", "Modern, comfortable silhouette"]
+    },
+    {
+      "slug": "sweat-pants-jogger-style",
+      "name": "Sweat Pants Jogger Style",
+      "style": "FJ-5002",
+      "collection": "sweatpants",
+      "collectionName": "Sweatpants",
+      "color": "Navy",
+      "colorHex": "#16305B",
+      "sizeGroups": [{ "label": "Youth", "sizes": ["3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] }],
+      "image": "assets/img/products/sweat-pants-jogger-style.png",
+      "description": "Navy sweatpants with a soft, breathable fabric, white drawstring, elastic waistband, and ankle cuffs. Designed for versatile casual wear including home relaxation, gym use, and errands.",
+      "features": ["Soft, breathable fabric", "Elastic waistband with drawstring", "Cuffed ankles", "Versatile everyday fit"]
+    },
+    {
+      "slug": "adult-sweat-pants-jogger-style",
+      "name": "Adult Sweat Pants Jogger Style",
+      "style": "FP-6000",
+      "collection": "sweatpants",
+      "collectionName": "Sweatpants",
+      "color": "Blue",
+      "colorHex": "#357DF9",
+      "sizeGroups": [{ "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }],
+      "image": "assets/img/products/adult-sweat-pants-jogger-style.png",
+      "description": "Blue jogger sweatpants featuring a soft, breathable fabric and relaxed fit, with an adjustable drawstring waist and cuffed ankles. Suitable for lounging, errands, or athletic activities.",
+      "features": ["Soft, breathable fabric", "Adjustable drawstring waist", "Cuffed ankles", "Relaxed jogger fit"]
+    },
+    {
+      "slug": "boys-pull-on-pants",
+      "name": "Boys Pull On Pants",
+      "style": "TP/KP/BP/MP-8080",
+      "collection": "pants",
+      "collectionName": "Pants",
+      "color": "Khaki",
+      "colorHex": "#C9A227",
+      "sizeGroups": [
+        { "label": "Toddler", "sizes": ["3T", "4T"] },
+        { "label": "Kids", "sizes": ["4", "5", "6", "7"] },
+        { "label": "Youth", "sizes": ["8", "10", "12", "14", "16"] },
+        { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/boys-pull-on-pants.png",
+      "description": "Classic slim-fit khaki trousers for everyday comfort, with an elastic waistband, adjustable drawstring, and functional side pockets. Versatile enough for casual and smart-casual occasions.",
+      "features": ["Slim-fit twill construction", "Elastic waistband with drawstring", "Functional side pockets", "Toddler through Men's sizing"]
+    },
+    {
+      "slug": "girls-pull-on-pants-twill",
+      "name": "Girls Pull On Pants – Twill",
+      "style": "KP-7067 / GP-7068 / JP-7069",
+      "collection": "pants",
+      "collectionName": "Pants",
+      "color": "Beige",
+      "colorHex": "#D8CBB0",
+      "sizeGroups": [
+        { "label": "Kids", "sizes": ["4", "5", "6", "6X"] },
+        { "label": "Girls", "sizes": ["7", "8", "10", "12", "14", "16"] },
+        { "label": "Junior", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/girls-pull-on-pants-twill.png",
+      "description": "Comfortable casual twill trousers for everyday wear, in a soft beige with a drawstring and adjustable waist. A relaxed fit in soft, breathable fabric suitable for school and casual occasions.",
+      "features": ["Twill fabric construction", "Drawstring, adjustable waist", "Relaxed fit", "Kids through Junior sizing"]
+    },
+    {
+      "slug": "girls-pull-on-pants-knitted",
+      "name": "Girls Pull On Pants – Knitted",
+      "style": "KP-3067 / GP-3068 / JP-3069",
+      "collection": "pants",
+      "collectionName": "Pants",
+      "color": "Beige",
+      "colorHex": "#D8CBB0",
+      "sizeGroups": [
+        { "label": "Toddler", "sizes": ["3T", "4T"] },
+        { "label": "Kids", "sizes": ["4", "5", "6", "6X"] },
+        { "label": "Girls", "sizes": ["7", "8", "10", "12", "14", "16"] },
+        { "label": "Junior", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/girls-pull-on-pants-knitted.png",
+      "description": "Comfortable casual trousers for everyday wear in soft knitted fabric, now including toddler sizing. Adjustable drawstring waist and a relaxed fit for school, travel, or home wear.",
+      "features": ["Knitted fabric construction", "Adjustable drawstring waist", "Relaxed fit", "Toddler through Junior sizing"]
+    },
+    {
+      "slug": "boys-joggers",
+      "name": "Boys Joggers",
+      "style": "KJ/BJ/MJ-8070",
+      "collection": "joggers",
+      "collectionName": "Joggers",
+      "color": "Beige",
+      "colorHex": "#D8CBB0",
+      "sizeGroups": [
+        { "label": "Kids", "sizes": ["4", "5", "6", "7"] },
+        { "label": "Youth", "sizes": ["8", "10", "12", "14", "16"] },
+        { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/boys-joggers.png",
+      "description": "Stylish beige jogger pants designed for maximum comfort and versatility. An elastic waistband with adjustable drawstring and secure ankle cuffs suit lounging, gym activities, or casual outings.",
+      "features": ["Elastic waistband with drawstring", "Secure ankle cuffs", "Relaxed jogger fit", "Kids through Men's sizing"]
+    },
+    {
+      "slug": "girls-joggers",
+      "name": "Girls Joggers",
+      "style": "KJ-8067 / GJ-8068 / JP-8069",
+      "collection": "joggers",
+      "collectionName": "Joggers",
+      "color": "Khaki",
+      "colorHex": "#C9A227",
+      "sizeGroups": [
+        { "label": "Kids", "sizes": ["4", "5", "6", "6X"] },
+        { "label": "Girls", "sizes": ["7", "8", "10", "12", "14", "16"] },
+        { "label": "Junior", "sizes": ["S", "M", "L", "XL", "XXL"] }
+      ],
+      "image": "assets/img/products/girls-joggers.png",
+      "description": "Stylish khaki jogger pants crafted for ultimate comfort and versatility, with an adjustable drawstring waistband and elasticated cuffs in breathable fabric — ideal for everyday activities.",
+      "features": ["Breathable fabric", "Adjustable drawstring waistband", "Elasticated ankle cuffs", "Kids through Junior sizing"]
+    },
+    {
+      "slug": "pull-on-shorts",
+      "name": "Pull On Shorts",
+      "style": "KJ/BJ-8070s",
+      "collection": "shorts",
+      "collectionName": "Shorts",
+      "color": "Beige",
+      "colorHex": "#D8CBB0",
+      "sizeGroups": [
+        { "label": "Kids", "sizes": ["4", "5", "6", "7"] },
+        { "label": "Youth", "sizes": ["8", "10", "12", "14", "16"] }
+      ],
+      "image": "assets/img/products/pull-on-shorts.png",
+      "description": "Comfortable everyday shorts with a drawstring waist. A relaxed fit with an adjustable waistband for warm-weather activities — pairs easily with t-shirts or polo shirts.",
+      "features": ["Drawstring waist closure", "Relaxed fit", "Breathable warm-weather fabric", "Kids and Youth sizing"]
+    }
+  ]
+}
