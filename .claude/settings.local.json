@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Skill(claude-api)"
+      "Skill(claude-api)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(command -v chromium-cli)",
+      "Bash(node --check assets/js/main.js)"
     ]
   }
 }

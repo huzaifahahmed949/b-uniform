@@ -183,57 +183,17 @@
   if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawer);
   renderInquiryBadge();
 
-  /* ---------- Quick view modal (reads data/products.json) ---------- */
-  const qvOverlay = document.querySelector(".qv-overlay");
-  const qvModal = document.querySelector(".qv-modal");
-  let productsData = null;
-  async function loadProducts() {
-    if (productsData) return productsData;
-    try {
-      const res = await fetch(`${ROOT_PREFIX}data/products.json`);
-      const json = await res.json();
-      productsData = json.products;
-    } catch (e) {
-      productsData = [];
-    }
-    return productsData;
-  }
-  async function openQuickView(slug) {
-    const products = await loadProducts();
-    const p = products.find((x) => x.slug === slug);
-    if (!p || !qvModal) return;
-    qvModal.innerHTML = `
-      <button class="modal-close" data-close-qv aria-label="Close">&times;</button>
-      <div class="qv-grid">
-        <img src="${ROOT_PREFIX}${p.image}" alt="${p.name}">
-        <div>
-          <div class="pd-style">Style ${p.style}</div>
-          <h3>${p.name}</h3>
-          <div class="pd-color"><span class="color-dot" style="background:${p.colorHex}"></span>${p.color}</div>
-          <p>${p.description}</p>
-          <div class="size-range"><strong>Sizes:</strong> ${p.sizeGroups.map((g) => g.label + " " + g.sizes.join("/")).join(" · ")}</div>
-          <div class="pd-actions">
-            <a class="btn btn-primary" href="${ROOT_PREFIX}products/${p.slug}.html">View Full Details</a>
-            <button class="btn btn-outline-navy" data-add-inquiry data-slug="${p.slug}" data-name="${p.name}" data-image="${p.image}">+ Add to Inquiry</button>
-          </div>
-        </div>
-      </div>`;
-    qvModal.classList.add("active");
-    if (qvOverlay) qvOverlay.classList.add("active");
-    qvModal.querySelector("[data-close-qv]").addEventListener("click", closeQuickView);
-  }
-  function closeQuickView() {
-    if (qvModal) qvModal.classList.remove("active");
-    if (qvOverlay) qvOverlay.classList.remove("active");
-  }
-  document.addEventListener("click", (e) => {
-    const qvBtn = e.target.closest("[data-quick-view]");
-    if (qvBtn) {
-      e.preventDefault();
-      openQuickView(qvBtn.dataset.quickView);
-    }
+  /* ---------- Product page: color swatch selection ---------- */
+  document.querySelectorAll(".color-swatches").forEach((row) => {
+    row.querySelectorAll(".swatch").forEach((swatch) => {
+      swatch.addEventListener("click", () => {
+        row.querySelectorAll(".swatch").forEach((s) => s.classList.remove("selected"));
+        swatch.classList.add("selected");
+        const label = document.querySelector(".current-color-name");
+        if (label) label.textContent = swatch.dataset.name;
+      });
+    });
   });
-  if (qvOverlay) qvOverlay.addEventListener("click", closeQuickView);
 
   /* ---------- Product page: size tabs + chip selection ---------- */
   document.querySelectorAll(".size-tab").forEach((tab) => {
@@ -326,6 +286,13 @@
         form.reset();
       }
     });
+  });
+
+  /* ---------- Copy-to-clipboard buttons ---------- */
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-copy]");
+    if (!btn) return;
+    navigator.clipboard.writeText(btn.dataset.copy).then(() => showToast("Copied to clipboard!"));
   });
 
   /* ---------- Newsletter mini-form ---------- */

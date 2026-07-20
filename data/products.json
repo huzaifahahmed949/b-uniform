@@ -17,7 +17,15 @@
       "collectionName": "Polo Shirts",
       "color": "Burgundy",
       "colorHex": "#7A1E2B",
-      "sizeGroups": [{ "label": "Junior", "sizes": ["S", "M", "L", "XL"] }],
+      "colors": [
+        { "name": "Light Blue", "hex": "#8EC6E8" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Burgundy", "hex": "#7A1E2B" },
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "White", "hex": "#FFFFFF" }
+      ],
+      "sizeGroups": [{ "label": "Junior", "sizes": ["S", "M", "L", "XL", "XXL"] }],
       "image": "assets/img/products/junior-polo.png",
       "description": "A premium burgundy polo shirt for children, made from ultra-soft, breathable fabric with a classic collar and button-up front. Designed for all-day comfort at school or casual outings, it holds its color and shape through repeated washes.",
       "features": ["Ultra-soft, breathable fabric", "Classic collar with button-up front", "Color-fast, easy-care construction", "Short-sleeve design"]
@@ -30,6 +38,16 @@
       "collectionName": "Polo Shirts",
       "color": "Black",
       "colorHex": "#1D1F24",
+      "colors": [
+        { "name": "Light Blue", "hex": "#8EC6E8" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" },
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "White", "hex": "#FFFFFF" },
+        { "name": "Green", "hex": "#1B6B39" },
+        { "name": "Blue", "hex": "#357DF9" }
+      ],
       "sizeGroups": [
         { "label": "Youth", "sizes": ["3T", "4T", "XS", "S", "M", "L", "XL", "XXL"] },
         { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
@@ -46,6 +64,16 @@
       "collectionName": "Polo Shirts",
       "color": "White",
       "colorHex": "#FFFFFF",
+      "colors": [
+        { "name": "Light Blue", "hex": "#8EC6E8" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" },
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "White", "hex": "#FFFFFF" },
+        { "name": "Green", "hex": "#1B6B39" },
+        { "name": "Blue", "hex": "#357DF9" }
+      ],
       "sizeGroups": [{ "label": "Unisex", "sizes": ["3T", "4T", "XS", "S", "M", "L", "XL", "XXL"] }],
       "image": "assets/img/products/polo-long-sleeve.png",
       "description": "A classic white long-sleeve polo designed for everyday wear and school uniforms. Ultra-soft, breathable fabric with a classic collar and smart button placket, built to keep its shape wash after wash.",
@@ -59,6 +87,12 @@
       "collectionName": "Hoodies & Jackets",
       "color": "Gray",
       "colorHex": "#727586",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" }
+      ],
       "sizeGroups": [
         { "label": "Toddler", "sizes": ["3T", "4T"] },
         { "label": "Youth", "sizes": ["XS", "S", "M", "L", "XL", "XXL"] },
@@ -76,6 +110,12 @@
       "collectionName": "Hoodies & Jackets",
       "color": "Navy",
       "colorHex": "#16305B",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" }
+      ],
       "sizeGroups": [
         { "label": "Youth", "sizes": ["3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] },
         { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
@@ -92,6 +132,12 @@
       "collectionName": "Hoodies & Jackets",
       "color": "Maroon",
       "colorHex": "#7A1E2B",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" }
+      ],
       "sizeGroups": [
         { "label": "Youth", "sizes": ["3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] },
         { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
@@ -108,6 +154,14 @@
       "collectionName": "Hoodies & Jackets",
       "color": "Dark Gray",
       "colorHex": "#5B6472",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Dark Gray", "hex": "#5B6472" },
+        { "name": "Maroon", "hex": "#7A1E2B" },
+        { "name": "Green", "hex": "#1B6B39" },
+        { "name": "Blue", "hex": "#357DF9" },
+        { "name": "Black", "hex": "#1D1F24" }
+      ],
       "sizeGroups": [
         { "label": "Boys", "sizes": ["XS", "S", "M", "L", "XL", "XXL"] },
         { "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }
@@ -124,6 +178,10 @@
       "collectionName": "Hoodies & Jackets",
       "color": "Black",
       "colorHex": "#1D1F24",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" }
+      ],
       "sizeGroups": [
         { "label": "Youth", "sizes": ["XS", "S", "M", "L", "XL", "XXL"] },
         { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
@@ -140,6 +198,12 @@
       "collectionName": "Sweatshirts",
       "color": "Black",
       "colorHex": "#1D1F24",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" }
+      ],
       "sizeGroups": [
         { "label": "Youth", "sizes": ["2/3", "3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] },
         { "label": "Men's", "sizes": ["S", "M", "L", "XL", "XXL"] }
@@ -156,6 +220,14 @@
       "collectionName": "Sweatpants",
       "color": "Maroon",
       "colorHex": "#7A1E2B",
+      "colors": [
+        { "name": "Green", "hex": "#1B6B39" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Blue", "hex": "#357DF9" },
+        { "name": "Maroon", "hex": "#7A1E2B" },
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Gray", "hex": "#727586" }
+      ],
       "sizeGroups": [{ "label": "Youth", "sizes": ["2/3", "3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] }],
       "image": "assets/img/products/sweat-pants.png",
       "description": "Maroon sweatpants crafted from ultra-soft, breathable fabric with an adjustable drawstring waist and relaxed pockets. A modern silhouette suitable for home relaxation, gym activities, or errands.",
@@ -169,6 +241,12 @@
       "collectionName": "Sweatpants",
       "color": "Navy",
       "colorHex": "#16305B",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Beige", "hex": "#D8CBB0" }
+      ],
       "sizeGroups": [{ "label": "Youth", "sizes": ["3/4", "5/6", "7/8", "10/12", "14/16", "18/20"] }],
       "image": "assets/img/products/sweat-pants-jogger-style.png",
       "description": "Navy sweatpants with a soft, breathable fabric, white drawstring, elastic waistband, and ankle cuffs. Designed for versatile casual wear including home relaxation, gym use, and errands.",
@@ -182,6 +260,14 @@
       "collectionName": "Sweatpants",
       "color": "Blue",
       "colorHex": "#357DF9",
+      "colors": [
+        { "name": "Black", "hex": "#1D1F24" },
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Gray", "hex": "#727586" },
+        { "name": "Maroon", "hex": "#7A1E2B" },
+        { "name": "Blue", "hex": "#357DF9" },
+        { "name": "Beige", "hex": "#D8CBB0" }
+      ],
       "sizeGroups": [{ "label": "Adult", "sizes": ["S", "M", "L", "XL", "XXL"] }],
       "image": "assets/img/products/adult-sweat-pants-jogger-style.png",
       "description": "Blue jogger sweatpants featuring a soft, breathable fabric and relaxed fit, with an adjustable drawstring waist and cuffed ankles. Suitable for lounging, errands, or athletic activities.",
@@ -195,6 +281,10 @@
       "collectionName": "Pants",
       "color": "Khaki",
       "colorHex": "#C9A227",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Khaki", "hex": "#C9A227" }
+      ],
       "sizeGroups": [
         { "label": "Toddler", "sizes": ["3T", "4T"] },
         { "label": "Kids", "sizes": ["4", "5", "6", "7"] },
@@ -213,6 +303,11 @@
       "collectionName": "Pants",
       "color": "Beige",
       "colorHex": "#D8CBB0",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Beige", "hex": "#D8CBB0" },
+        { "name": "Black", "hex": "#1D1F24" }
+      ],
       "sizeGroups": [
         { "label": "Kids", "sizes": ["4", "5", "6", "6X"] },
         { "label": "Girls", "sizes": ["7", "8", "10", "12", "14", "16"] },
@@ -230,6 +325,11 @@
       "collectionName": "Pants",
       "color": "Beige",
       "colorHex": "#D8CBB0",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Beige", "hex": "#D8CBB0" },
+        { "name": "Black", "hex": "#1D1F24" }
+      ],
       "sizeGroups": [
         { "label": "Toddler", "sizes": ["3T", "4T"] },
         { "label": "Kids", "sizes": ["4", "5", "6", "6X"] },
@@ -248,6 +348,10 @@
       "collectionName": "Joggers",
       "color": "Beige",
       "colorHex": "#D8CBB0",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Beige", "hex": "#D8CBB0" }
+      ],
       "sizeGroups": [
         { "label": "Kids", "sizes": ["4", "5", "6", "7"] },
         { "label": "Youth", "sizes": ["8", "10", "12", "14", "16"] },
@@ -265,6 +369,10 @@
       "collectionName": "Joggers",
       "color": "Khaki",
       "colorHex": "#C9A227",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Khaki", "hex": "#C9A227" }
+      ],
       "sizeGroups": [
         { "label": "Kids", "sizes": ["4", "5", "6", "6X"] },
         { "label": "Girls", "sizes": ["7", "8", "10", "12", "14", "16"] },
@@ -282,6 +390,10 @@
       "collectionName": "Shorts",
       "color": "Beige",
       "colorHex": "#D8CBB0",
+      "colors": [
+        { "name": "Navy", "hex": "#16305B" },
+        { "name": "Beige", "hex": "#D8CBB0" }
+      ],
       "sizeGroups": [
         { "label": "Kids", "sizes": ["4", "5", "6", "7"] },
         { "label": "Youth", "sizes": ["8", "10", "12", "14", "16"] }
