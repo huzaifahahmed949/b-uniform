@@ -191,6 +191,19 @@
         swatch.classList.add("selected");
         const label = document.querySelector(".current-color-name");
         if (label) label.textContent = swatch.dataset.name;
+
+        // If this color has its own product photo, swap the gallery image and
+        // keep the "Add to Inquiry" button's image reference in sync.
+        const newImage = swatch.dataset.image;
+        if (newImage) {
+          const galleryImg = document.querySelector(".gallery-main img");
+          if (galleryImg) galleryImg.src = newImage;
+          const addBtn = document.querySelector("[data-add-inquiry]");
+          if (addBtn) {
+            const relativeImage = newImage.replace(/^(\.\.\/)+/, "");
+            addBtn.dataset.image = relativeImage;
+          }
+        }
       });
     });
   });
