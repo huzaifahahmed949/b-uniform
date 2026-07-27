@@ -215,6 +215,10 @@
       document.querySelectorAll(".size-panel").forEach((p) => p.classList.remove("active"));
       tab.classList.add("active");
       document.getElementById(tab.dataset.target).classList.add("active");
+      if (tab.dataset.style) {
+        const styleEl = document.querySelector(".pd-style");
+        if (styleEl) styleEl.textContent = tab.dataset.style;
+      }
     });
   });
   document.querySelectorAll(".size-chip").forEach((chip) => {
@@ -306,6 +310,14 @@
     const btn = e.target.closest("[data-copy]");
     if (!btn) return;
     navigator.clipboard.writeText(btn.dataset.copy).then(() => showToast("Copied to clipboard!"));
+  });
+
+  /* ---------- Clickable product cards ---------- */
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    const card = e.target.closest(".product-card[data-href]");
+    if (!card) return;
+    window.location.href = card.dataset.href;
   });
 
   /* ---------- Newsletter mini-form ---------- */

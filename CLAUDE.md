@@ -444,6 +444,182 @@ See "Architecture" above for how the approved plan was actually implemented.
   collections index. Applied to all 7 for consistency, not just Shorts (the page the
   owner used as the example). Verified via Puppeteer that the link's href resolves to
   `../collections.html` and it renders correctly.
+- **Extended per-color photo swap to Mock Neck With Zipper (MN-561), Polar Fleece
+  (PF-562), and Winters Jacket (JKT-561)** — owner gave one base photo per product (each
+  already matching that product's existing default color: Gray, Dark Gray, Black
+  respectively), no logos (tops in the Hoodies & Jackets category do sometimes get a logo,
+  per the sweatshirt precedent, but owner said not needed here). Recolored the remaining
+  listed colors for each: Mock Neck → Black, Navy, Maroon; Polar Fleece → Navy, Maroon,
+  Green, Blue, Black; Winters Jacket → Navy only.
+  **Recolor pipeline calibration fix (important, reusable going forward):** owner has now
+  twice flagged programmatically-recolored Navy as too bright ("funky") compared to real
+  fabric. Root-caused this properly this time instead of just guessing a darker hex:
+  sampled actual pixel color from the site's real (non-recolored) navy and burgundy
+  sweatshirt photos (`sweat-shirt-navy.png` → RGB 23,31,46; `sweat-shirt-burgundy.png` →
+  RGB 118,18,37) and used those as the recolor targets instead of the flat UI swatch hex
+  (`#16305B`/`#7A1E2B`), which reads noticeably brighter/more saturated than actual
+  photographed fabric. Also fixed a second, subtler bug in the recolor math itself: the
+  old formula recentered garment shading around a fixed lightness of 0.5, so a garment
+  photographed on a lighter base fabric (e.g. heather gray) still came out systematically
+  brighter than the target even with a correct target color. Fixed by first computing the
+  source photo's own average lightness (excluding background) and centering the recolor
+  on *that*, so flat fabric areas map precisely onto the target color and only actual
+  shading/highlights carry through as contrast — verified by resampling pixels afterward
+  (Navy output landed at 23,31,47; Maroon at 119,18,37, both essentially exact matches to
+  the real-photo samples). Green/Blue targets were left at the site's existing flat hex
+  (`#1B6B39`/`#357DF9`) since the owner only flagged navy/burgundy and those read fine —
+  Blue in particular is meant to be a vivid accent color, not muted like navy. This
+  calibrated approach (real-photo pixel sampling + own-average-lightness centering) is
+  now the standard recolor method for this project — reuse it directly for future
+  categories rather than guessing target hex/lightness by eye.
+- Unified the description format for Pull Over Hoodie (FH-5000) and Zipper Hoodie
+  (BO-560) to the same 3-line `<br>` template used for the sweatpants group, per owner
+  instruction that both are made of polar fleece fabric (the material, not a reference to
+  the separate "Polar Fleece" product/collection — confirmed with the owner before
+  editing). Updated both `products/*.html` `pd-desc` paragraphs and the matching
+  `description` fields in `data/products.json`.
+- **Wired real per-color photos (owner-supplied, logos already included where
+  applicable) for Junior Polo (GP-3012), Polo Long Sleeve (BP-6012), and Mock Neck With
+  Zipper (MN-561)** from an owner-provided `Pictures To Change/` folder — pure asset-wiring
+  task, no recoloring/compositing needed this time. Noticed both Junior Polo's existing
+  default photo (`junior-polo.png`, Burgundy w/ bee logo) and Polo Long Sleeve's existing
+  default (`polo-long-sleeve.png`, White w/ Board of Education seal) were already
+  byte-identical to two of the supplied files, so those two colors reuse the existing
+  file instead of duplicating it. Added new files for the other 5 Junior Polo colors and
+  7 Polo Long Sleeve colors (`assets/img/products/<slug>-<color>.png`, e.g.
+  `junior-polo-navy.png`, `polo-long-sleeve-light-blue.png`), added `colors[].image`
+  fields in `data/products.json` and `data-image` attributes on each `.swatch` in both
+  product pages (neither had per-color images wired before this). Mock Neck With Zipper
+  already had the `data-image` pattern in place from a prior recolor pass — its Navy/
+  Maroon/Black files were simply overwritten in place with the new real photos (same
+  filenames, no JSON/HTML changes needed); Gray was untouched (still the default photo).
+  Verified all 18 color/product combinations via Puppeteer (swatch click → correct
+  `.gallery-main img` src + `naturalWidth > 0` for every case).
+- Owner replaced Junior Polo's White swatch photo with a lighter version (plain white
+  background instead of the earlier gray-background render) — overwrote
+  `assets/img/products/junior-polo-white.png` in place from the updated file in
+  `Pictures To Change/Junior polo/`; no JSON/HTML changes needed since the filename was
+  unchanged.
+- **Made entire product cards clickable, removed the separate "View Details" button**
+  (58 cards across 26 files: homepage, all 7 collection pages, and every product page's
+  "You May Also Like" related-products section). Each `.product-card` now carries a
+  `data-href` attribute (the same URL the old button pointed to) instead of the `<a
+  class="btn ... btn-block">View Details</a>` child. Added one delegated click handler in
+  `assets/js/main.js` (`document.addEventListener("click", ...)`, near the other
+  delegated handlers): if the click landed on or inside an `<a>` (e.g. the product-name
+  `h3` link, which is still a real anchor and still works/opens-in-new-tab on ctrl-click),
+  let it behave natively and don't intercept; otherwise if the click was inside a
+  `.product-card[data-href]`, navigate via `window.location.href`. Added `cursor: pointer`
+  to `.product-card` in `style.css`. Verified via Puppeteer: no "View Details" text
+  remains anywhere, clicking the thumbnail area of a card navigates to the product page,
+  clicking the title link still works, and the pointer cursor is applied.
+- Made several small dynamic-style-number tweaks to specific products, each scoped with a
+  `data-style` attribute on individual `.size-tab` elements (generic handler already added
+  to `assets/js/main.js` for Polo Short Sleeve — reused unchanged, no JS edits needed for
+  any of these): clicking a size tab updates `.pd-style` only when that tab has
+  `data-style`, so untouched products' size tabs remain unaffected. Applied to: Boys Pull
+  On Pants (Toddler→TP-8080, Kids→KP-8080, Youth→BP-8080, Men's→MP-8080); Girls Pull On
+  Pants – Twill (Kids→KP-7067, Girls→GP-7068, Junior→JP-7069); Girls Pull On Pants –
+  Knitted (Toddler **and** Kids both→KP-3067 per owner instruction, Girls→GP-3068,
+  Junior→JP-3069); Boys Joggers (Kids→KJ-8070, Youth→BJ-8070, Men's→MJ-8070); Girls
+  Joggers (Kids→KJ-8067, Girls→GJ-8068, Junior→**LJ**-8069, per owner correction — not
+  JP as originally listed); Pull On Shorts (Kids→KJ-8070s, Youth→BJ-8070s). Verified all
+  18 tab/style combinations via Puppeteer.
+- Owner supplied a real Black photo for Girls Pull On Pants — both Twill and Knitted
+  variants already shared one `girls-pull-on-pants-black.png` file (from an earlier
+  programmatic recolor, since no real photo existed for Black at the time), so this was a
+  simple in-place file overwrite with no JSON/HTML changes needed; both product pages
+  pick it up automatically.
+- Owner supplied updated real Navy photos for Boys Joggers, Girls Joggers, and Pull On
+  Shorts (organized in `Pictures To Change/Joggers/` and `.../Shorts/`) — same in-place
+  overwrite pattern at the existing filenames, no code changes.
+- **Extended the calibrated recolor pipeline to Sweat Pants (FP-5000).** Owner supplied
+  one base photo (`Pictures To Change/Sweat Pants.png`, Maroon — matching the product's
+  existing default `sweat-pants.png` photo) and asked for recolor-only (no logos) across
+  the product's 6 listed colors. Used the established method (see the earlier jackets/
+  fleece calibration entry): sampled real target RGB from genuine (non-recolored) site
+  photos for Navy/Gray/Black (`sweat-shirt-navy.png`→(33,44,63), `sweat-shirt-gray.png`→
+  (124,124,126), `sweat-shirt-black.png`→(42,43,47)), kept the site's existing flat hex
+  for Green/Blue (not flagged as inaccurate), and centered each recolor on the source
+  photo's own average lightness rather than a fixed midpoint. Generated `sweat-pants-
+  green.png`, `-navy.png`, `-blue.png`, `-black.png`, `-gray.png`; Maroon reuses the
+  existing default `sweat-pants.png`. Wired into `data/products.json` (`colors[].image`)
+  and `data-image` attributes on `products/sweat-pants.html`'s swatches (this product had
+  never been through the photo-swap pipeline before — no prior `data-image` wiring
+  existed). Verified all 6 colors via Puppeteer.
+- Resolved the Polar Fleece "Light Blue" question above: the owner replaced their initial
+  pale-blue photo with a proper vivid royal-blue real photo, renamed the file to "Polar
+  Fleece Blue.png" (no longer "Light Blue"), confirming the intent was to simply replace
+  the existing programmatically-recolored "Blue" swatch's photo, not add a 7th color.
+  Overwrote `assets/img/products/polar-fleece-blue.png` in place with the real photo — no
+  JSON/HTML changes needed since the swatch was already wired to that filename. Verified
+  via Puppeteer.
+- Owner also supplied a real Blue photo for Sweat Pants (`Pictures To Change/Sweatpants
+  blue.png`), replacing the earlier calibrated-recolor version — overwrote
+  `assets/img/products/sweat-pants-blue.png` in place, same pattern.
+- Fixed two leftover Sweatshirt category-tile images that were missed in the earlier
+  "cover photo → burgundy" change (that pass only covered the mega-menu and the actual
+  product card): the homepage's category grid tile and `collections.html`'s category
+  tile were still showing the old black `sweat-shirt.png`. Updated both to
+  `sweat-shirt-burgundy.png` for consistency with every other Sweatshirts thumbnail on
+  the site.
+- **Extended the calibrated recolor pipeline to Adult Sweat Pants Jogger Style (FP-6000)
+  and Sweat Pants Jogger Style (FJ-5002)** — neither had a supplied source photo this
+  time (unlike Sweat Pants FP-5000, which got a real base photo), so their own existing
+  default product photos were used as the recolor base: FP-6000's default is Blue (kept
+  as-is), needed Black/Navy/Gray/Maroon/Khaki generated; FJ-5002's default is Navy (kept
+  as-is), needed Black/Gray/Khaki generated. Reused the calibrated real-photo-sampled
+  targets from the earlier Sweat Pants (FP-5000) pass — same Navy/Gray/Black RGB values,
+  plus the project's already-calibrated Khaki hex (`#9B7A60`) — rather than re-deriving
+  new samples, since these are the same fabric/fleece family. Wired into
+  `data/products.json` and `data-image` attributes on both product pages (neither had
+  ever been through the photo pipeline before). Verified all 10 color combinations via
+  Puppeteer.
+- **Extended the pipeline to Pull Over Hoodie (FH-5000) and Zipper Hoodie (BO-560)** —
+  Pull Over Hoodie's base photo is plain Navy (no logo), so a straightforward recolor to
+  Black/Gray/Maroon was used, same as any other plain product. **Zipper Hoodie's base
+  photo already had the bee logo baked in** (an original site asset, not something this
+  session added) — recoloring it naively would also recolor the logo itself. Solved by
+  adding a "preserve logo" mode to the recolor function: pixels are left untouched if
+  they're low-saturation (white/black logo outlines) or clearly a different hue family
+  from the garment (colored graphic elements). This alone still let a saturated pure-red
+  boxing-glove accent bleed into the recolor, because red and maroon share almost the
+  same hue — only saturation tells them apart (glove ≈0.98 vs fabric ≈0.73 average) — so
+  a further rule was added: pixels much more saturated than the garment's own average are
+  also preserved, but **only within a manually-identified bounding box around the logo**
+  (`x:880–1100, y:500–950` for this specific photo). Restricting that stricter rule to a
+  bounding box was necessary because applying it image-wide caught ordinary shadow/wrinkle
+  noise across the whole garment and produced a visible speckled mess — confirmed by
+  rendering full-size output, not just spot-sampling pixels. Verified the exact glove
+  pixel byte-for-byte identical across all 3 recolored outputs, and visually confirmed no
+  stray speckling elsewhere. **Reusable takeaway:** when recoloring a photo with an
+  existing colored logo/graphic, don't trust a single global heuristic — verify against
+  the specific accent color's actual HSL values, and if a saturation-based rule is needed
+  to catch a same-hue-family accent, scope it to the logo's bounding box rather than
+  applying it globally, or fabric shading will get falsely preserved as "logo" all over
+  the garment. Wired into `data/products.json` and `data-image` attributes on both
+  product pages. Verified all 8 color combinations via Puppeteer, including a pixel-level
+  check that the boxing glove's red survived unchanged.
+- **Owner then asked to remove the bee logo from Zipper Hoodie entirely except on the
+  Maroon colorway** — revisited the earlier-documented "logo removal produces a visible
+  patch/seam" limitation (see the Sweat Shirt "With Logo" pipeline entry) and this time it
+  worked cleanly. Used a clone-stamp technique: copied a same-size patch of clean fabric
+  from the left chest (mirrored position, no logo) over the logo's bounding box
+  (`x:880–1100, y:500–950`), feathered 25px at the box edges to blend seams, on the
+  original Maroon photo. Verified with a tight crop right at the former logo location
+  before trusting it — completely seamless, no visible patch edge. Re-ran the plain
+  (non-logo-preserving) recolor on this cleaned base to regenerate Black/Gray/Navy;
+  Maroon keeps the original photo with the logo intact, untouched, per instruction.
+  **Why this succeeded where the earlier sweatshirt attempt failed:** this photo is a
+  flat, evenly-lit studio product shot with minimal fabric shading/wrinkling near the
+  logo site, so a same-garment clone patch matches almost perfectly; the earlier failed
+  case likely had more shading/texture variation at the removal site, so clone-stamping
+  couldn't hide the seam. **Takeaway:** logo removal via clone-stamp is worth trying
+  again on other flat/uniformly-lit product photos — it isn't a universal failure, it
+  depends on how much shading/texture surrounds the logo — but always verify with a tight
+  crop at the exact removal site before trusting the result, not just the full thumbnail.
+  No JSON/HTML changes needed since the filenames were unchanged. Verified all 4 colors
+  via Puppeteer.
 
 **Known gaps / not yet done:**
 - Contact and Wholesale forms are front-end only — no backend wired up, so submissions

@@ -313,6 +313,7 @@ section { padding: 72px 0; }
   transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .product-thumb { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--color-light); }

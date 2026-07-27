@@ -55,27 +55,33 @@
       "colors": [
         {
           "name": "Light Blue",
-          "hex": "#8EC6E8"
+          "hex": "#8EC6E8",
+          "image": "assets/img/products/junior-polo-light-blue.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/junior-polo-navy.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/junior-polo-gray.png"
         },
         {
           "name": "Burgundy",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/junior-polo.png"
         },
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/junior-polo-black.png"
         },
         {
           "name": "White",
-          "hex": "#FFFFFF"
+          "hex": "#FFFFFF",
+          "image": "assets/img/products/junior-polo-white.png"
         }
       ],
       "sizeGroups": [
@@ -186,35 +192,43 @@
       "colors": [
         {
           "name": "Light Blue",
-          "hex": "#8EC6E8"
+          "hex": "#8EC6E8",
+          "image": "assets/img/products/polo-long-sleeve-light-blue.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/polo-long-sleeve-navy.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/polo-long-sleeve-gray.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/polo-long-sleeve-maroon.png"
         },
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/polo-long-sleeve-black.png"
         },
         {
           "name": "White",
-          "hex": "#FFFFFF"
+          "hex": "#FFFFFF",
+          "image": "assets/img/products/polo-long-sleeve.png"
         },
         {
           "name": "Green",
-          "hex": "#1B6B39"
+          "hex": "#1B6B39",
+          "image": "assets/img/products/polo-long-sleeve-green.png"
         },
         {
           "name": "Blue",
-          "hex": "#357DF9"
+          "hex": "#357DF9",
+          "image": "assets/img/products/polo-long-sleeve-blue.png"
         }
       ],
       "sizeGroups": [
@@ -252,19 +266,23 @@
       "colors": [
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/mock-neck-with-zipper-black.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/mock-neck-with-zipper-navy.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/mock-neck-with-zipper.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/mock-neck-with-zipper-maroon.png"
         }
       ],
       "sizeGroups": [
@@ -317,19 +335,23 @@
       "colors": [
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/pull-over-hoodie-black.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/pull-over-hoodie-gray.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/pull-over-hoodie-maroon.png"
         }
       ],
       "sizeGroups": [
@@ -356,7 +378,7 @@
         }
       ],
       "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png",
-      "description": "A cozy navy pullover hoodie in ultra-soft, premium fabric with a front kangaroo pocket and adjustable hood. Perfect for everyday wear, from outdoor activities to relaxing at home.",
+      "description": "Pull Over Hoodie With Kangaroo Pockets featuring a cotton-poly blend, polar fleece fabric. Relaxed fit, adjustable hood and a roomy front kangaroo pocket. Suitable for everyday wear, outdoor activities, or relaxing at home.",
       "features": [
         "Ultra-soft, premium fabric",
         "Roomy kangaroo pocket",
@@ -375,19 +397,23 @@
       "colors": [
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/zipper-hoodie-black.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/zipper-hoodie-navy.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/zipper-hoodie-gray.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.png"
         }
       ],
       "sizeGroups": [
@@ -414,7 +440,7 @@
         }
       ],
       "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.png",
-      "description": "A deep, rich maroon zip-up hoodie offering comfort through ultra-soft, breathable fabric. Features an adjustable hood, spacious front pockets, and a full-length zipper — great for layering or everyday wear.",
+      "description": "Zipper Hoodie With Kangaroo Pockets featuring a cotton-poly blend, polar fleece fabric. Relaxed fit, adjustable hood and a full-length zipper with spacious front pockets. Suitable for layering, everyday wear, or outdoor activities.",
       "features": [
         "Ultra-soft, breathable fabric",
         "Full-length zipper",
@@ -433,27 +459,33 @@
       "colors": [
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/polar-fleece-navy.png"
         },
         {
           "name": "Dark Gray",
-          "hex": "#5B6472"
+          "hex": "#5B6472",
+          "image": "assets/img/products/polar-fleece.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/polar-fleece-maroon.png"
         },
         {
           "name": "Green",
-          "hex": "#1B6B39"
+          "hex": "#1B6B39",
+          "image": "assets/img/products/polar-fleece-green.png"
         },
         {
           "name": "Blue",
-          "hex": "#357DF9"
+          "hex": "#357DF9",
+          "image": "assets/img/products/polar-fleece-blue.png"
         },
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/polar-fleece-black.png"
         }
       ],
       "sizeGroups": [
@@ -499,11 +531,13 @@
       "colors": [
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/winters-jacket.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/winters-jacket-navy.png"
         }
       ],
       "sizeGroups": [
@@ -612,27 +646,33 @@
       "colors": [
         {
           "name": "Green",
-          "hex": "#1B6B39"
+          "hex": "#1B6B39",
+          "image": "assets/img/products/sweat-pants-green.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/sweat-pants-navy.png"
         },
         {
           "name": "Blue",
-          "hex": "#357DF9"
+          "hex": "#357DF9",
+          "image": "assets/img/products/sweat-pants-blue.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/sweat-pants.png"
         },
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/sweat-pants-black.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/sweat-pants-gray.png"
         }
       ],
       "sizeGroups": [
@@ -669,19 +709,23 @@
       "colors": [
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/sweat-pants-jogger-style-black.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/sweat-pants-jogger-style.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/sweat-pants-jogger-style-gray.png"
         },
         {
           "name": "Khaki",
-          "hex": "#9B7A60"
+          "hex": "#9B7A60",
+          "image": "assets/img/products/sweat-pants-jogger-style-khaki.png"
         }
       ],
       "sizeGroups": [
@@ -717,27 +761,33 @@
       "colors": [
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-black.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-navy.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-gray.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-maroon.png"
         },
         {
           "name": "Blue",
-          "hex": "#357DF9"
+          "hex": "#357DF9",
+          "image": "assets/img/products/adult-sweat-pants-jogger-style.png"
         },
         {
           "name": "Khaki",
-          "hex": "#9B7A60"
+          "hex": "#9B7A60",
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-khaki.png"
         }
       ],
       "sizeGroups": [
