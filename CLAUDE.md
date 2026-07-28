@@ -620,6 +620,23 @@ See "Architecture" above for how the approved plan was actually implemented.
   crop at the exact removal site before trusting the result, not just the full thumbnail.
   No JSON/HTML changes needed since the filenames were unchanged. Verified all 4 colors
   via Puppeteer.
+- **Wired real per-color photos for Polo Short Sleeve (BP-6012)** from an owner-supplied
+  `Pictures To Change/Polo Short Sleeve/` folder (7 of 8 colors; no Navy file was
+  supplied). While wiring this up, caught and fixed a **pre-existing bug**: the product's
+  default/representative file (`assets/img/products/polo-short-sleeve.png`, referenced by
+  every collection card, the mega-menu, and the homepage) actually depicted a **Navy**
+  garment, while `data/products.json`'s `color` field and the product page's "selected"
+  swatch both said **Black** — a stale mismatch from earlier in the project, unrelated to
+  this task. Fixed by preserving the existing (correct, real) Navy photo under a new
+  filename (`polo-short-sleeve-navy.png`) for the Navy swatch, then overwriting the
+  shared default filename with the owner's new real Black photo — since every other
+  reference to that filename sitewide was already assuming it showed Black, this
+  corrected all of them at once rather than just the one product page. Converted one
+  supplied file (`Polo Short Sleeve Blue.jpeg`) to PNG for consistency with the rest of
+  the catalog (via a throwaway Jimp one-liner — Jimp isn't a project dependency, only
+  available in the scratchpad's throwaway npm install, consistent with how it's been
+  used all session). Verified all 8 colors via Puppeteer, plus confirmed the page's
+  initial (pre-click) load now shows the correct Black photo instead of the old Navy one.
 
 **Known gaps / not yet done:**
 - Contact and Wholesale forms are front-end only — no backend wired up, so submissions

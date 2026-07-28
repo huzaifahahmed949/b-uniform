@@ -116,35 +116,43 @@
       "colors": [
         {
           "name": "Light Blue",
-          "hex": "#8EC6E8"
+          "hex": "#8EC6E8",
+          "image": "assets/img/products/polo-short-sleeve-light-blue.png"
         },
         {
           "name": "Navy",
-          "hex": "#16305B"
+          "hex": "#16305B",
+          "image": "assets/img/products/polo-short-sleeve-navy.png"
         },
         {
           "name": "Gray",
-          "hex": "#727586"
+          "hex": "#727586",
+          "image": "assets/img/products/polo-short-sleeve-gray.png"
         },
         {
           "name": "Maroon",
-          "hex": "#7A1E2B"
+          "hex": "#7A1E2B",
+          "image": "assets/img/products/polo-short-sleeve-maroon.png"
         },
         {
           "name": "Black",
-          "hex": "#1D1F24"
+          "hex": "#1D1F24",
+          "image": "assets/img/products/polo-short-sleeve.png"
         },
         {
           "name": "White",
-          "hex": "#FFFFFF"
+          "hex": "#FFFFFF",
+          "image": "assets/img/products/polo-short-sleeve-white.png"
         },
         {
           "name": "Green",
-          "hex": "#1B6B39"
+          "hex": "#1B6B39",
+          "image": "assets/img/products/polo-short-sleeve-green.png"
         },
         {
           "name": "Blue",
-          "hex": "#357DF9"
+          "hex": "#357DF9",
+          "image": "assets/img/products/polo-short-sleeve-blue.png"
         }
       ],
       "sizeGroups": [
