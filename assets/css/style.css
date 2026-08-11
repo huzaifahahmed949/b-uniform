@@ -530,6 +530,7 @@ section { padding: 72px 0; }
 .form-error { font-size: 0.78rem; color: var(--color-burgundy); min-height: 16px; }
 .form-success { background: #E7F5EE; color: #0F7A47; padding: 16px 20px; border-radius: var(--radius-sm); font-weight: 600; display: none; }
 .form-success.active { display: block; }
+.hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; opacity: 0; }
 
 /* Size guide table */
 .size-table-wrap { overflow-x: auto; margin-bottom: 40px; border-radius: var(--radius-md); border: 1px solid var(--color-border); }

@@ -222,8 +222,10 @@
         <h2>Get a fast, no-obligation quote</h2>
         <p>Tell us what you need and we'll get back to you quickly — no minimums required.</p>
       </div>
-      <form class="newsletter-form" data-newsletter>
-        <input type="email" placeholder="Your email address" required aria-label="Email address">
+      <form class="newsletter-form" data-newsletter action="assets/php/send-form.php" method="POST">
+        <input type="hidden" name="form_type" value="newsletter">
+        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
         <button class="btn btn-secondary" type="submit">Subscribe</button>
       </form>
     </div>

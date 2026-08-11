@@ -296,12 +296,27 @@
         field.style.borderColor = msg ? "var(--color-burgundy)" : "";
         if (msg) valid = false;
       });
-      if (valid) {
-        form.style.display = "none";
-        const successEl = form.parentElement.querySelector(".form-success");
-        if (successEl) successEl.classList.add("active");
-        form.reset();
-      }
+      if (!valid) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, { method: "POST", body: new FormData(form) })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            form.style.display = "none";
+            const successEl = form.parentElement.querySelector(".form-success");
+            if (successEl) successEl.classList.add("active");
+            form.reset();
+          } else {
+            showToast(data.error || "Something went wrong. Please try again.");
+          }
+        })
+        .catch(() => showToast("Something went wrong. Please try again or email us directly."))
+        .finally(() => {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   });
 
@@ -324,8 +339,13 @@
   document.querySelectorAll("form[data-newsletter]").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      showToast("Thanks for subscribing!");
-      form.reset();
+      fetch(form.action, { method: "POST", body: new FormData(form) })
+        .then((res) => res.json())
+        .then((data) => {
+          showToast(data.success ? "Thanks for subscribing!" : (data.error || "Something went wrong. Please try again."));
+          if (data.success) form.reset();
+        })
+        .catch(() => showToast("Something went wrong. Please try again."));
     });
   });
 })();
