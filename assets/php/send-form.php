@@ -65,7 +65,7 @@ $body = implode("\n", $lines);
 $replyTo = $name !== '' ? "$name <$email>" : $email;
 
 $headers = [
-    'From: B-Uniform Website <no-reply@b-uniform.com>',
+    'From: B-Uniform Website <info@b-uniform.com>',
     'Reply-To: ' . $replyTo,
     'Content-Type: text/plain; charset=UTF-8',
 ];
