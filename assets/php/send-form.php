@@ -12,7 +12,8 @@ $config    = @include __DIR__ . '/config.php';
 $SMTP_PASS = is_array($config) ? ($config['smtp_password'] ?? '') : '';
 
 // Honeypot: real visitors never fill this hidden field, bots often do.
-if (!empty($_POST['website'] ?? '')) {
+if (!empty($_POST['bu_hp_check'] ?? '')) {
+    error_log('B-Uniform form honeypot tripped, value: ' . $_POST['bu_hp_check']);
     echo json_encode(['success' => true]);
     exit;
 }
