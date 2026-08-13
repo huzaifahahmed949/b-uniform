@@ -1,5 +1,4 @@
 <?php
-// deploy-debug: forcing a re-upload to diagnose missing assets/php on server
 header('Content-Type: application/json');
 
 $TO        = 'info@b-uniform.com';
