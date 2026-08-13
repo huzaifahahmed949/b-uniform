@@ -92,7 +92,7 @@ if ($ok) {
     echo json_encode(['success' => true]);
 } else {
     http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'The message could not be sent.']);
+    echo json_encode(['success' => false, 'error' => 'The message could not be sent.', 'debug' => $err]);
 }
 
 /* ---------------- Minimal dependency-free SMTP client ---------------- */
