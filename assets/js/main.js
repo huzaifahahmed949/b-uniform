@@ -206,6 +206,13 @@
         }
       });
     });
+
+    // Preload every other color's photo in the background so clicking a
+    // swatch swaps instantly instead of waiting on a fresh network request.
+    row.querySelectorAll(".swatch[data-image]").forEach((swatch) => {
+      const preload = new Image();
+      preload.src = swatch.dataset.image;
+    });
   });
 
   /* ---------- Product page: size tabs + chip selection ---------- */

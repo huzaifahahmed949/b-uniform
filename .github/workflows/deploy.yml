@@ -18,3 +18,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /domains/b-uniform.com/public_html/
           log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            assets/img/products/*.png

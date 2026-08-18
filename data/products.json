@@ -4,43 +4,43 @@
       "slug": "polo-shirts",
       "name": "Polo Shirts",
       "tagline": "Classic collared polos for school and beyond",
-      "image": "assets/img/products/polo-short-sleeve.png"
+      "image": "assets/img/products/polo-short-sleeve.webp"
     },
     {
       "slug": "hoodies-jackets",
       "name": "Hoodies & Jackets",
       "tagline": "Warm layers built for every season",
-      "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png"
+      "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.webp"
     },
     {
       "slug": "sweatshirts",
       "name": "Sweatshirts",
       "tagline": "Everyday pullover comfort",
-      "image": "assets/img/products/sweat-shirt.png"
+      "image": "assets/img/products/sweat-shirt.webp"
     },
     {
       "slug": "sweatpants",
       "name": "Sweatpants",
       "tagline": "Soft, relaxed-fit bottoms",
-      "image": "assets/img/products/sweat-pants.png"
+      "image": "assets/img/products/sweat-pants.webp"
     },
     {
       "slug": "pants",
       "name": "Pants",
       "tagline": "Pull-on trousers for school and play",
-      "image": "assets/img/products/boys-pull-on-pants.png"
+      "image": "assets/img/products/boys-pull-on-pants.webp"
     },
     {
       "slug": "joggers",
       "name": "Joggers",
       "tagline": "Athletic-fit comfort with cuffed ankles",
-      "image": "assets/img/products/boys-joggers.png"
+      "image": "assets/img/products/boys-joggers.webp"
     },
     {
       "slug": "shorts",
       "name": "Shorts",
       "tagline": "Warm-weather essentials",
-      "image": "assets/img/products/pull-on-shorts.png"
+      "image": "assets/img/products/pull-on-shorts.webp"
     }
   ],
   "products": [
@@ -56,32 +56,32 @@
         {
           "name": "Light Blue",
           "hex": "#8EC6E8",
-          "image": "assets/img/products/junior-polo-light-blue.png"
+          "image": "assets/img/products/junior-polo-light-blue.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/junior-polo-navy.png"
+          "image": "assets/img/products/junior-polo-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/junior-polo-gray.png"
+          "image": "assets/img/products/junior-polo-gray.webp"
         },
         {
           "name": "Burgundy",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/junior-polo.png"
+          "image": "assets/img/products/junior-polo.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/junior-polo-black.png"
+          "image": "assets/img/products/junior-polo-black.webp"
         },
         {
           "name": "White",
           "hex": "#FFFFFF",
-          "image": "assets/img/products/junior-polo-white.png"
+          "image": "assets/img/products/junior-polo-white.webp"
         }
       ],
       "sizeGroups": [
@@ -96,7 +96,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/junior-polo.png",
+      "image": "assets/img/products/junior-polo.webp",
       "description": "A premium burgundy polo shirt for children, made from ultra-soft, breathable fabric with a classic collar and button-up front. Designed for all-day comfort at school or casual outings, it holds its color and shape through repeated washes.",
       "features": [
         "Ultra-soft, breathable fabric",
@@ -117,42 +117,42 @@
         {
           "name": "Light Blue",
           "hex": "#8EC6E8",
-          "image": "assets/img/products/polo-short-sleeve-light-blue.png"
+          "image": "assets/img/products/polo-short-sleeve-light-blue.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/polo-short-sleeve-navy.png"
+          "image": "assets/img/products/polo-short-sleeve-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/polo-short-sleeve-gray.png"
+          "image": "assets/img/products/polo-short-sleeve-gray.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/polo-short-sleeve-maroon.png"
+          "image": "assets/img/products/polo-short-sleeve-maroon.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/polo-short-sleeve.png"
+          "image": "assets/img/products/polo-short-sleeve.webp"
         },
         {
           "name": "White",
           "hex": "#FFFFFF",
-          "image": "assets/img/products/polo-short-sleeve-white.png"
+          "image": "assets/img/products/polo-short-sleeve-white.webp"
         },
         {
           "name": "Green",
           "hex": "#1B6B39",
-          "image": "assets/img/products/polo-short-sleeve-green.png"
+          "image": "assets/img/products/polo-short-sleeve-green.webp"
         },
         {
           "name": "Blue",
           "hex": "#357DF9",
-          "image": "assets/img/products/polo-short-sleeve-blue.png"
+          "image": "assets/img/products/polo-short-sleeve-blue.webp"
         }
       ],
       "sizeGroups": [
@@ -180,7 +180,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/polo-short-sleeve.png",
+      "image": "assets/img/products/polo-short-sleeve.webp",
       "description": "A classic black polo shirt featuring premium, ultra-soft fabric with a traditional collar, short sleeves, and a flattering fit. Versatile enough for semi-formal and casual occasions alike.",
       "features": [
         "Premium, ultra-soft fabric",
@@ -201,42 +201,42 @@
         {
           "name": "Light Blue",
           "hex": "#8EC6E8",
-          "image": "assets/img/products/polo-long-sleeve-light-blue.png"
+          "image": "assets/img/products/polo-long-sleeve-light-blue.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/polo-long-sleeve-navy.png"
+          "image": "assets/img/products/polo-long-sleeve-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/polo-long-sleeve-gray.png"
+          "image": "assets/img/products/polo-long-sleeve-gray.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/polo-long-sleeve-maroon.png"
+          "image": "assets/img/products/polo-long-sleeve-maroon.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/polo-long-sleeve-black.png"
+          "image": "assets/img/products/polo-long-sleeve-black.webp"
         },
         {
           "name": "White",
           "hex": "#FFFFFF",
-          "image": "assets/img/products/polo-long-sleeve.png"
+          "image": "assets/img/products/polo-long-sleeve.webp"
         },
         {
           "name": "Green",
           "hex": "#1B6B39",
-          "image": "assets/img/products/polo-long-sleeve-green.png"
+          "image": "assets/img/products/polo-long-sleeve-green.webp"
         },
         {
           "name": "Blue",
           "hex": "#357DF9",
-          "image": "assets/img/products/polo-long-sleeve-blue.png"
+          "image": "assets/img/products/polo-long-sleeve-blue.webp"
         }
       ],
       "sizeGroups": [
@@ -254,7 +254,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/polo-long-sleeve.png",
+      "image": "assets/img/products/polo-long-sleeve.webp",
       "description": "A classic white long-sleeve polo designed for everyday wear and school uniforms. Ultra-soft, breathable fabric with a classic collar and smart button placket, built to keep its shape wash after wash.",
       "features": [
         "Breathable, durable fabric",
@@ -275,22 +275,22 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/mock-neck-with-zipper-black.png"
+          "image": "assets/img/products/mock-neck-with-zipper-black.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/mock-neck-with-zipper-navy.png"
+          "image": "assets/img/products/mock-neck-with-zipper-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/mock-neck-with-zipper.png"
+          "image": "assets/img/products/mock-neck-with-zipper.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/mock-neck-with-zipper-maroon.png"
+          "image": "assets/img/products/mock-neck-with-zipper-maroon.webp"
         }
       ],
       "sizeGroups": [
@@ -323,7 +323,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/mock-neck-with-zipper.png",
+      "image": "assets/img/products/mock-neck-with-zipper.webp",
       "description": "Stay cozy and stylish in this versatile gray zip-up fleece jacket. A sleek high collar, convenient front pockets, and comfortably snug elastic cuffs make it ideal for layering during cold weather.",
       "features": [
         "Soft fleece fabric",
@@ -344,22 +344,22 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/pull-over-hoodie-black.png"
+          "image": "assets/img/products/pull-over-hoodie-black.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png"
+          "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/pull-over-hoodie-gray.png"
+          "image": "assets/img/products/pull-over-hoodie-gray.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/pull-over-hoodie-maroon.png"
+          "image": "assets/img/products/pull-over-hoodie-maroon.webp"
         }
       ],
       "sizeGroups": [
@@ -385,7 +385,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.png",
+      "image": "assets/img/products/pull-over-hoodie-with-kangaroo-pockets.webp",
       "description": "Pull Over Hoodie With Kangaroo Pockets featuring a cotton-poly blend, polar fleece fabric. Relaxed fit, adjustable hood and a roomy front kangaroo pocket. Suitable for everyday wear, outdoor activities, or relaxing at home.",
       "features": [
         "Ultra-soft, premium fabric",
@@ -406,22 +406,22 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/zipper-hoodie-black.png"
+          "image": "assets/img/products/zipper-hoodie-black.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/zipper-hoodie-navy.png"
+          "image": "assets/img/products/zipper-hoodie-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/zipper-hoodie-gray.png"
+          "image": "assets/img/products/zipper-hoodie-gray.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.png"
+          "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.webp"
         }
       ],
       "sizeGroups": [
@@ -447,7 +447,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.png",
+      "image": "assets/img/products/zipper-hoodie-with-kangaroo-pockets.webp",
       "description": "Zipper Hoodie With Kangaroo Pockets featuring a cotton-poly blend, polar fleece fabric. Relaxed fit, adjustable hood and a full-length zipper with spacious front pockets. Suitable for layering, everyday wear, or outdoor activities.",
       "features": [
         "Ultra-soft, breathable fabric",
@@ -468,32 +468,32 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/polar-fleece-navy.png"
+          "image": "assets/img/products/polar-fleece-navy.webp"
         },
         {
           "name": "Dark Gray",
           "hex": "#5B6472",
-          "image": "assets/img/products/polar-fleece.png"
+          "image": "assets/img/products/polar-fleece.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/polar-fleece-maroon.png"
+          "image": "assets/img/products/polar-fleece-maroon.webp"
         },
         {
           "name": "Green",
           "hex": "#1B6B39",
-          "image": "assets/img/products/polar-fleece-green.png"
+          "image": "assets/img/products/polar-fleece-green.webp"
         },
         {
           "name": "Blue",
           "hex": "#357DF9",
-          "image": "assets/img/products/polar-fleece-blue.png"
+          "image": "assets/img/products/polar-fleece-blue.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/polar-fleece-black.png"
+          "image": "assets/img/products/polar-fleece-black.webp"
         }
       ],
       "sizeGroups": [
@@ -519,7 +519,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/polar-fleece.png",
+      "image": "assets/img/products/polar-fleece.webp",
       "description": "Cozy full-zip outerwear for everyday comfort. Ultra-soft premium fleece delivers exceptional warmth in a lightweight construction, with a full-length front zipper and side pockets for outdoor activities or casual wear.",
       "features": [
         "Premium fleece fabric",
@@ -540,12 +540,12 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/winters-jacket.png"
+          "image": "assets/img/products/winters-jacket.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/winters-jacket-navy.png"
+          "image": "assets/img/products/winters-jacket-navy.webp"
         }
       ],
       "sizeGroups": [
@@ -571,7 +571,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/winters-jacket.png",
+      "image": "assets/img/products/winters-jacket.webp",
       "description": "A sleek black hooded windbreaker with full-length zip closure, two practical front pockets, and a modern, minimalist look. Lightweight, water-resistant fabric protects against wind and light rain while layering easily into everyday or outdoor wear.",
       "features": [
         "Lightweight, water-resistant fabric",
@@ -592,22 +592,22 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/sweat-shirt-black.png"
+          "image": "assets/img/products/sweat-shirt-black.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/sweat-shirt-navy.png"
+          "image": "assets/img/products/sweat-shirt-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/sweat-shirt-gray.png"
+          "image": "assets/img/products/sweat-shirt-gray.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/sweat-shirt-burgundy.png"
+          "image": "assets/img/products/sweat-shirt-burgundy.webp"
         }
       ],
       "sizeGroups": [
@@ -634,7 +634,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/sweat-shirt.png",
+      "image": "assets/img/products/sweat-shirt.webp",
       "description": "A classic unisex pullover crewneck sweatshirt crafted from ultra-soft, durable fabric with ribbed cuffs and hem for a secure, flattering fit. Great for layering or wearing on its own.",
       "features": [
         "Ultra-soft, durable fabric",
@@ -655,32 +655,32 @@
         {
           "name": "Green",
           "hex": "#1B6B39",
-          "image": "assets/img/products/sweat-pants-green.png"
+          "image": "assets/img/products/sweat-pants-green.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/sweat-pants-navy.png"
+          "image": "assets/img/products/sweat-pants-navy.webp"
         },
         {
           "name": "Blue",
           "hex": "#357DF9",
-          "image": "assets/img/products/sweat-pants-blue.png"
+          "image": "assets/img/products/sweat-pants-blue.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/sweat-pants.png"
+          "image": "assets/img/products/sweat-pants.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/sweat-pants-black.png"
+          "image": "assets/img/products/sweat-pants-black.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/sweat-pants-gray.png"
+          "image": "assets/img/products/sweat-pants-gray.webp"
         }
       ],
       "sizeGroups": [
@@ -697,7 +697,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/sweat-pants.png",
+      "image": "assets/img/products/sweat-pants.webp",
       "description": "Sweat Pants featuring a cotton-poly blend, fleece fabric. Relaxed fit, adjustable drawstring and side pockets. Suitable for home relaxation, gym activities, or running errands.",
       "features": [
         "Ultra-soft, breathable fabric",
@@ -718,22 +718,22 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/sweat-pants-jogger-style-black.png"
+          "image": "assets/img/products/sweat-pants-jogger-style-black.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/sweat-pants-jogger-style.png"
+          "image": "assets/img/products/sweat-pants-jogger-style.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/sweat-pants-jogger-style-gray.png"
+          "image": "assets/img/products/sweat-pants-jogger-style-gray.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/sweat-pants-jogger-style-khaki.png"
+          "image": "assets/img/products/sweat-pants-jogger-style-khaki.webp"
         }
       ],
       "sizeGroups": [
@@ -749,7 +749,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/sweat-pants-jogger-style.png",
+      "image": "assets/img/products/sweat-pants-jogger-style.webp",
       "description": "Sweat Pants Jogger Style featuring a cotton-poly blend, fleece fabric. Relaxed fit, adjustable drawstring and cuffed ankles. Suitable for home relaxation, gym use, or running errands.",
       "features": [
         "Soft, breathable fabric",
@@ -770,32 +770,32 @@
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/adult-sweat-pants-jogger-style-black.png"
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-black.webp"
         },
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/adult-sweat-pants-jogger-style-navy.png"
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-navy.webp"
         },
         {
           "name": "Gray",
           "hex": "#727586",
-          "image": "assets/img/products/adult-sweat-pants-jogger-style-gray.png"
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-gray.webp"
         },
         {
           "name": "Maroon",
           "hex": "#7A1E2B",
-          "image": "assets/img/products/adult-sweat-pants-jogger-style-maroon.png"
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-maroon.webp"
         },
         {
           "name": "Blue",
           "hex": "#357DF9",
-          "image": "assets/img/products/adult-sweat-pants-jogger-style.png"
+          "image": "assets/img/products/adult-sweat-pants-jogger-style.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/adult-sweat-pants-jogger-style-khaki.png"
+          "image": "assets/img/products/adult-sweat-pants-jogger-style-khaki.webp"
         }
       ],
       "sizeGroups": [
@@ -810,7 +810,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/adult-sweat-pants-jogger-style.png",
+      "image": "assets/img/products/adult-sweat-pants-jogger-style.webp",
       "description": "Adult Sweat Pants Jogger Style featuring a cotton-poly blend, fleece fabric. Relaxed fit, adjustable drawstring and cuffed ankles. Suitable for lounging, errands, or athletic activities.",
       "features": [
         "Soft, breathable fabric",
@@ -831,12 +831,12 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/boys-pull-on-pants-navy.png"
+          "image": "assets/img/products/boys-pull-on-pants-navy.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/boys-pull-on-pants.png"
+          "image": "assets/img/products/boys-pull-on-pants.webp"
         }
       ],
       "sizeGroups": [
@@ -877,7 +877,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/boys-pull-on-pants.png",
+      "image": "assets/img/products/boys-pull-on-pants.webp",
       "description": "Classic slim-fit khaki trousers for everyday comfort, with an elastic waistband, adjustable drawstring, and functional side pockets. Versatile enough for casual and smart-casual occasions.",
       "features": [
         "Slim-fit twill construction",
@@ -898,17 +898,17 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/girls-pull-on-pants-navy.png"
+          "image": "assets/img/products/girls-pull-on-pants-navy.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/girls-pull-on-pants-twill.png"
+          "image": "assets/img/products/girls-pull-on-pants-twill.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/girls-pull-on-pants-black.png"
+          "image": "assets/img/products/girls-pull-on-pants-black.webp"
         }
       ],
       "sizeGroups": [
@@ -943,7 +943,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/girls-pull-on-pants-twill.png",
+      "image": "assets/img/products/girls-pull-on-pants-twill.webp",
       "description": "Comfortable casual twill trousers for everyday wear, in a soft khaki with a drawstring and adjustable waist. A relaxed fit in soft, breathable fabric suitable for school and casual occasions.",
       "features": [
         "Twill fabric construction",
@@ -964,17 +964,17 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/girls-pull-on-pants-navy.png"
+          "image": "assets/img/products/girls-pull-on-pants-navy.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/girls-pull-on-pants-knitted.png"
+          "image": "assets/img/products/girls-pull-on-pants-knitted.webp"
         },
         {
           "name": "Black",
           "hex": "#1D1F24",
-          "image": "assets/img/products/girls-pull-on-pants-black.png"
+          "image": "assets/img/products/girls-pull-on-pants-black.webp"
         }
       ],
       "sizeGroups": [
@@ -1016,7 +1016,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/girls-pull-on-pants-knitted.png",
+      "image": "assets/img/products/girls-pull-on-pants-knitted.webp",
       "description": "Comfortable casual trousers for everyday wear in soft knitted fabric, now including toddler sizing. Adjustable drawstring waist and a relaxed fit for school, travel, or home wear.",
       "features": [
         "Knitted fabric construction",
@@ -1037,12 +1037,12 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/boys-joggers-navy.png"
+          "image": "assets/img/products/boys-joggers-navy.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/boys-joggers.png"
+          "image": "assets/img/products/boys-joggers.webp"
         }
       ],
       "sizeGroups": [
@@ -1076,7 +1076,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/boys-joggers.png",
+      "image": "assets/img/products/boys-joggers.webp",
       "description": "Stylish khaki jogger pants designed for maximum comfort and versatility. An elastic waistband with adjustable drawstring and secure ankle cuffs suit lounging, gym activities, or casual outings.",
       "features": [
         "Elastic waistband with drawstring",
@@ -1097,12 +1097,12 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/girls-joggers-navy.png"
+          "image": "assets/img/products/girls-joggers-navy.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/girls-joggers.png"
+          "image": "assets/img/products/girls-joggers.webp"
         }
       ],
       "sizeGroups": [
@@ -1137,7 +1137,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/girls-joggers.png",
+      "image": "assets/img/products/girls-joggers.webp",
       "description": "Stylish khaki jogger pants crafted for ultimate comfort and versatility, with an adjustable drawstring waistband and elasticated cuffs in breathable fabric — ideal for everyday activities.",
       "features": [
         "Breathable fabric",
@@ -1158,12 +1158,12 @@
         {
           "name": "Navy",
           "hex": "#16305B",
-          "image": "assets/img/products/pull-on-shorts-navy.png"
+          "image": "assets/img/products/pull-on-shorts-navy.webp"
         },
         {
           "name": "Khaki",
           "hex": "#9B7A60",
-          "image": "assets/img/products/pull-on-shorts.png"
+          "image": "assets/img/products/pull-on-shorts.webp"
         }
       ],
       "sizeGroups": [
@@ -1187,7 +1187,7 @@
           ]
         }
       ],
-      "image": "assets/img/products/pull-on-shorts.png",
+      "image": "assets/img/products/pull-on-shorts.webp",
       "description": "Comfortable everyday shorts with a drawstring waist. A relaxed fit with an adjustable waistband for warm-weather activities — pairs easily with t-shirts or polo shirts.",
       "features": [
         "Drawstring waist closure",
