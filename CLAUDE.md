@@ -248,6 +248,8 @@ See "Architecture" above for how the approved plan was actually implemented.
   pattern as the existing "Our Values" section for visual consistency; the address links
   out to a Google Maps search (no API key needed for a plain search URL). Owner
   subsequently corrected the displayed hours to 12:00 PM – 6:00 PM directly in `about.html`.
+  **Address later corrected to 395 Broadway** (not 427) — see the 2026-08-17 entry below;
+  427 Broadway is stale and should not be reused anywhere.
 - Made the Location & Hours section interactive, kept deliberately subtle per owner
   request (site ambience is good, didn't want anything flashy — skipped a live open/closed
   badge and extra hover polish, which were offered but not wanted): phone/email in the
@@ -637,17 +639,435 @@ See "Architecture" above for how the approved plan was actually implemented.
   available in the scratchpad's throwaway npm install, consistent with how it's been
   used all session). Verified all 8 colors via Puppeteer, plus confirmed the page's
   initial (pre-click) load now shows the correct Black photo instead of the old Navy one.
-
-**Known gaps / not yet done:**
+- **Store address corrected: it's 395 Broadway, Bayonne, NJ — not 427 Broadway.** The
+  displayed address text/copy-button on `about.html` was already correct, but three
+  leftover spots still said 427 (the map's `data-map-loading` alt text, the iframe
+  `title`, and the "Get Directions" link's query param) — fixed all three. **427 Broadway
+  is stale everywhere it appears** (including earlier in this log, e.g. the original
+  "Location & Hours" entry above) — always use 395 Broadway for this business going
+  forward, in code, copy, and any generated marketing assets.
+- Created marketing poster/banner assets outside the site itself, in
+  `assets/marketing/posters-2026-08/` (3 initial layout-only concepts — minimalist,
+  bold-navy, editorial-split — each in social-square/story/print-portrait) and
+  `assets/marketing/deals-2026-08/` (5 real-pricing "deal" posters: Polo Long Sleeve $14,
+  Polo Short Sleeve $12, Kids Sweatshirt $15, Adult Sweatshirt $20, Pullover/Zipper
+  Hoodies Kids $20 / Adult $25 — each in the same 3 formats). Built with hand-coded
+  HTML/CSS (Google Fonts Anton + Poppins loaded live, real product photos from
+  `assets/img/products/`, brand hex tokens) and rendered via a scratch `puppeteer-core` +
+  local Chrome script (no MCP/Canva connection available in this environment — flagged to
+  owner as an option to set up later if needed). Owner feedback that shaped the "deal"
+  template: make the **B-UNIFORM** wordmark much bigger/bolder (huge Anton-font wordmark
+  now dominates the top), make price the loudest element (now a jagged gold "sticker
+  burst" overlapping the garment photo instead of a small corner badge), and reword the
+  new-location message attractively while keeping the same meaning (landed on "WE'VE
+  MOVED TO A BIGGER SPOT!" as a full-width gold banner, not small footer text). **Gym
+  Shirts and Gym Pants deal posters are intentionally not yet made** — no matching
+  product/photo exists in the current 18-product catalog for either; owner chose to wait
+  and supply real photos rather than substitute a mismatched product photo. The generator
+  script (data-driven, one template + a `PRODUCTS` array) lives only in the scratchpad,
+  not the repo — recreate it fresh next time rather than assuming it persists.
+- **Connected a Canva MCP server** (`claude mcp add --transport http --scope user canva
+  https://mcp.canva.com/mcp`, then owner completed OAuth login themselves — the login step
+  requires a real browser and can't be done from an agent shell). Once connected, tried to
+  use it to build fresh poster designs, but hit real, confirmed platform limits on this
+  Canva account: **AI Design Generation (`generate-design`) is disabled on this Canva
+  team/plan** (errors with "Design generation is not enabled in your team"), and
+  **`search-brand-templates` returns empty** (no brand templates exist in this account —
+  that feature needs a Canva Business/Enterprise setup). The remaining Canva tools
+  (`start-editing-transaction` / `perform-editing-operations`) can only edit an *existing*
+  design's existing elements (swap text/images, move/resize/delete) — there's no
+  "add a new text box" or "draw a shape" op, so a design can't be composed from a blank
+  canvas that way either. **Conclusion: Canva MCP cannot build new posters on this account
+  as currently configured** — the only way to use Canva going forward would be the owner
+  manually picking an existing template in the Canva web UI and sharing its link for me to
+  edit, or enabling Magic Design on their plan. Stayed on the HTML/CSS/Puppeteer pipeline
+  instead.
+- **Redesigned the deal-poster template from scratch** (not just a retexture) after owner
+  feedback that the first "flash-sale" version (orange bg, jagged starburst price, angled
+  sticker card) felt too similar to my own earlier template. Owner supplied two real
+  inspiration screenshots (a "BIG SALE" comic-sticker design and a "SPECIAL SALE" ad with
+  a product-on-pedestal + ring badge) and asked me to borrow techniques, not copy layouts.
+  New template (`catchy-generate.js` pattern, scratchpad-only) uses: a navy gradient bg
+  with radiating conic-gradient sunburst rays + scattered confetti dots (borrowed from the
+  sticker-sale ref), a thick-stroke layered "sticker text" headline (`-webkit-text-stroke`
+  + stacked `text-shadow` offsets, no image needed), a product floating on a soft
+  radial-gradient "podium" glow instead of an angled card (borrowed from the pedestal ref),
+  and a thin gold-ring circle price badge (also from the pedestal ref) instead of a jagged
+  starburst. Iterated twice more on owner feedback: (1) made the product ~50% larger as the
+  clear focal point and restored the location message as a full-width bold gold banner
+  (previous pass had shrunk both down too far); (2) removed "THIS WEEK ONLY", removed the
+  white background around the product (real transparent cutout instead — see below), and
+  changed the price display to a struck-through "was" price above the sale price (e.g.
+  ~~$16~~ **$12 ONLY**) plus a competitive tagline pill ("CHEAPEST UNIFORMS IN TOWN — ONLY
+  AT B-UNIFORM.COM"). **This is now the confirmed direction for the Polo Short Sleeve
+  poster**; not yet batched to the other products (see Known gaps).
+- **Built a background-removal pipeline** (`remove-bg.js`, scratchpad-only, uses `jimp` —
+  note: this session installed the newer **Jimp v1**, whose API changed from the `Jimp`
+  default-export used in earlier pipeline entries in this log to a named export:
+  `const { Jimp } = require('jimp')`, and `img.write(path)` instead of `.writeAsync()`).
+  Approach: flood-fill from all four canvas edges over near-white/low-saturation pixels
+  (luminance > 235, saturation < 0.08) marking them transparent, then a light edge-feather
+  pass on remaining near-white pixels adjacent to a removed pixel for anti-aliased edges,
+  then a final forced-transparent N-px border margin to catch compression/scan artifacts
+  right at the canvas edge that are too dark/saturated to pass the whiteness test on their
+  own (this caught a real 1px-wide non-white line baked into the original
+  `polo-short-sleeve.png`'s right edge that showed up as a faint vertical line artifact in
+  the first render — diagnosed by scanning column-by-column for leftover opaque alpha
+  rather than guessing). Verified by compositing the cutout onto a solid color test
+  background before trusting it, not just eyeballing on a white viewer background (which
+  can't show whether transparency actually worked). Output saved as
+  `polo-short-sleeve-cutout.png`; same technique should work directly for the other
+  catalog product photos since they're all shot on the same flat white studio background.
+- **Built a first animated/video version of the deal poster** per owner request to make it
+  "stop the doomscroll" — a ~7.8s, 1080x1080, 30fps MP4 (`assets/marketing/video-2026-08/
+  polo-short-sleeve-flash-deal.mp4`). Pure CSS-keyframe animation (no video/animation MCP
+  needed): each element (brand chip, headline, tagline, product drop-bounce onto the
+  podium, price-ring pop-in with rotation overshoot, an animated strike-through line on the
+  "was" price, name/CTA, location banner slide-up) is choreographed via `animation-delay` +
+  `forwards` so the whole page is one continuous timeline; background rays rotate
+  continuously and confetti dots twinkle throughout to keep the frame alive during holds;
+  the price ring gets one extra emphasis pulse near the end. Recorded via Puppeteer's
+  built-in `page.screencast()` (Puppeteer v22+ API — this session has v25) to WebM, then
+  encoded to H.264/MP4 with **ffmpeg** (installed this session via
+  `winget install Gyan.FFmpeg` — not present in the environment before; owner's shell needs
+  to be restarted for `ffmpeg` to be on `PATH` automatically, until then use the full path
+  under `%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_...\ffmpeg-9.0-full_build\
+  bin\ffmpeg.exe`). This is a proof-of-concept for one product only — owner said they'll
+  decide separately whether to apply video treatment to the rest of the catalog.
+- **Iterated on the first video cut per owner feedback** (felt "tacky", background rotation
+  wasn't smooth, only the rays were moving, shirt felt static/fake): slowed the sunburst
+  rotation from a full 360°/26s (reads as an obvious spinning pinwheel) to 360°/160s plus a
+  gentle 7s "breathing" scale pulse — much more ambient, less hypnotic-spinner. Gave nearly
+  every element continuous idle motion instead of freezing after its entrance (brand chip
+  float/tilt, shirt sway + vertical bob for a fabric-like "jiggle", price-ring wobble,
+  tagline/name/CTA/location-pin gentle bobs) using CSS's **standalone `translate`/`rotate`/
+  `scale` properties** layered alongside each element's existing `transform`-based entrance
+  keyframe — this avoids the composition conflict you get if two animations both target the
+  shorthand `transform` property (the later one simply overwrites the earlier one's value
+  each frame instead of combining). One real bug hit and fixed this way: adding a standalone
+  `translate` idle animation to the tagline (which was already horizontally centered via
+  `transform:translate(-50%,0)`) initially double-applied the `-50%` offset and pushed it
+  off-center — fixed by keeping the centering only in the `transform` shorthand and having
+  the idle keyframe carry just the small vertical bob with no x-component.
+- **Set up a proper Remotion project** at `marketing-video/` (own `package.json`, gitignored
+  `node_modules`/`out`/`.remotion` — this is intentionally a real, persistent part of the
+  repo, not a scratchpad throwaway, since owner wants to keep using it) per owner's request
+  to explore a more powerful video pipeline than raw CSS keyframes. Owner asked "how do I
+  set this up" — answer was: nothing on the owner's end at all; Remotion is free/local/
+  npm-only (free tier covers individuals and orgs ≤3 employees, no account or API key
+  needed) — so it was just set up and proven end-to-end rather than left as instructions.
+  `src/Root.jsx` defines the `PoloShortSleeveDeal` composition (1080x1080, 30fps, 7.8s);
+  `src/DealVideo.jsx` re-implements the same animation as the CSS version but with
+  Remotion's frame-based model (`useCurrentFrame()`, `spring()` for physics-based pops,
+  `interpolate()` for linear/eased transitions) instead of CSS `@keyframes` + `animation-
+  delay` — genuinely finer control (e.g. the "was"-price strikethrough is a
+  `background-size` wipe driven directly by `interpolate()`, not a CSS animation guessing
+  timing against a `forwards` hold). Product photo lives in `marketing-video/public/`
+  (Remotion's static-asset convention, referenced via `staticFile()`) — copied from the
+  scratchpad cutout; **not the same file as `assets/img/products/`**, so if the source
+  cutout changes it needs to be re-copied into `marketing-video/public/` too.
+  **Real bug hit and fixed**: the first render's text fell back to a generic serif font —
+  Remotion doesn't pick up a plain `<link>`-tag Google Fonts import the way a normal browser
+  page does. Fixed with the official `@remotion/google-fonts` package
+  (`loadFont()` from `@remotion/google-fonts/Anton` and `/Poppins`, called at module scope,
+  using the returned `fontFamily` value in styles) — this is the correct/documented way to
+  load fonts in Remotion, not a workaround; use this pattern for any future Remotion
+  composition in this project. Also hit `npx remotion render` requiring an **explicit entry
+  point** (`npx remotion render src/index.jsx <composition-id> <out-path>` — bare
+  `npx remotion render <composition-id> <out-path>` errors with "No entry point
+  specified"). Verified the final render by extracting and visually inspecting frames via
+  ffmpeg (`-ss <time> -frames:v 1`), not just checking the render command exited 0 — caught
+  the font bug this way. Output saved to `marketing-video/out/` (gitignored) and a copy
+  placed at `assets/marketing/video-2026-08/polo-short-sleeve-flash-deal-remotion.mp4`
+  alongside the original CSS/Puppeteer version for comparison.
+- **Researched free video-generation options** at owner's request as an alternative/
+  supplement to hand-built animation: **Remotion** (adopted, see above) is free for
+  individuals/orgs ≤3 employees, matches this project's existing code-first approach, no
+  account needed. AI video-generation MCP connectors (HeyGen, FAL, Higgsfield, Vivideo)
+  generate real AI footage/avatars — a different capability, not a better version of this
+  motion-graphic poster format — and "free" there typically means a limited trial requiring
+  the owner's own account/API key. Open-source AI video models (LTX, Mochi 1, HunyuanVideo)
+  are genuinely free but need a capable local GPU to run, not practical on this machine.
+  Recommendation given to owner: Remotion is the only one worth pursuing for this use case.
+- **Switched the Polo Short Sleeve deal creative to the Burgundy/Maroon colorway** — owner
+  correctly flagged that the plain Black photo barely registered against the navy
+  background (dark-on-dark, low contrast), and asked for a bright/warm color instead for
+  a clearer focal point. Used the catalog's existing `polo-short-sleeve-maroon.png`
+  (Burgundy is this product's "Maroon" colorway — includes the boxing-bee logo) rather than
+  sourcing a new photo. Ran it through the same background-removal pipeline
+  (`remove-bg.js`) to produce `polo-short-sleeve-maroon-cutout.png`, verified transparency
+  the same way (composited onto a solid test color before trusting it). **Explicit owner
+  instruction: do not delete or overwrite any previously generated asset** — so the
+  Burgundy versions were added as new files alongside the Black ones, not replacements:
+  - Static poster: `assets/marketing/catchy-2026-08/catchy-polo-short-sleeve-burgundy--
+    {social-square-1080x1080,print-portrait-1275x1650}.png`
+  - CSS/Puppeteer video: `assets/marketing/video-2026-08/polo-short-sleeve-burgundy-flash-
+    deal.mp4`
+  - Remotion video: `assets/marketing/video-2026-08/polo-short-sleeve-burgundy-flash-deal-
+    remotion.mp4`, via a **second** `<Composition id="PoloShortSleeveDealBurgundy">` added
+    in `marketing-video/src/Root.jsx` (the original `PoloShortSleeveDeal`/Black composition
+    is untouched) — both point at the same `DealVideo` component, just different `photo`
+    prop, and the Burgundy photo was copied into `marketing-video/public/` alongside the
+    Black one (Remotion's `public/` is a separate asset root from `assets/img/products/`,
+    easy to forget to sync). All four Black-shirt outputs from earlier in this log still
+    exist untouched. The `.gitignore`'d scratchpad generator scripts (`catchy-generate.js`,
+    `catchy-animate.js`) were updated in place to point at the Burgundy asset — since they
+    don't persist in the repo anyway, there was no "old version" of *those* to preserve,
+    only the rendered output files needed to survive.
+- **Lightened the background and switched to a 3-shirt "fanned" hero composition** for the
+  static poster only (not yet applied to either video), per owner feedback: background
+  gradient moved from `#1c3f74/#16305B/#0a1830` to a lighter `#2f5a9c/#234a80/#17335e` ramp;
+  added two extra `<img>`s positioned either side of the original center shirt
+  (`translateX(±21vh) rotate(±13deg)`, slightly smaller, dimmed via
+  `filter: brightness(0.86)` and pushed to a lower `z-index`) so the two side shirts read as
+  behind/flanking the center one rather than competing with it — center shirt kept
+  untouched at full size/brightness as the focal point.
+  **Superseded immediately after** — owner asked for the two side shirts to be different
+  *colors* (Green on one side, White on the other, center stays Burgundy) rather than three
+  copies of the same photo, **and explicitly asked to delete** the same-photo trio files
+  (an explicit exception to the usual "don't delete previous assets" rule — that rule is
+  about not losing earlier *rounds* the owner might still want, not a blanket ban on ever
+  deleting anything once asked). Deleted
+  `catchy-polo-short-sleeve-burgundy-trio--{social-square-1080x1080,print-portrait-1275x1650}.png`.
+  Owner also asked for only one output file this time (skip the print-portrait format) to
+  reduce cost — the generator script's `.garment-side`/`.garment` markup now takes separate
+  `photoLeft`/`photo`/`photoRight` fields instead of one repeated `photo`, using the
+  catalog's existing `polo-short-sleeve-green.png` and `polo-short-sleeve-white.png`.
+  **Real bug hit and fixed in `remove-bg.js` while doing this**: the White polo's studio
+  backdrop turned out to be light *gray* (~184 luminance), not white — the old fixed
+  "luminance > 235" whiteness threshold missed almost the entire background, leaving a
+  visible gray rectangle behind the cutout. Rewrote background detection to be **adaptive**:
+  sample the actual corner-pixel color of each specific photo and flood-fill by color
+  *distance* from that sampled reference (default tolerance 30, now a CLI arg —
+  `node remove-bg.js <src> <out> [tolerance]`) instead of assuming near-white. This is a
+  better general technique and should be used for any future product photo, not just this
+  one. That fix then surfaced a second, harder problem: at tight-enough tolerance to avoid
+  false positives, small notches got bitten into the white shirt's underarm area, because
+  that fold-shadow was itself close in tone to the gray backdrop and *directly channel-
+  connected* to the outer background (confirmed by inspecting the original source photo —
+  it's a solid "ghost mannequin" shot with no real gap there, so the notch was a genuine
+  false removal, not correctly-exposed background). Added a morphological closing pass
+  (dilate the opaque alpha mask, then erode it back) to `remove-bg.js` to auto-patch small
+  bitten-in holes — this works for isolated pockets but **cannot fix a notch that's an open
+  channel connected to the main background region** (closing only fills fully-enclosed
+  holes); the underarm notch is exactly that case, so it remains faintly present in the raw
+  cutout file even after closing. Left it as-is rather than continuing to chase a
+  diminishing-return pixel fix, because verifying it *in the actual composition* (small
+  scale, tilted, dimmed, partially occluded by the center shirt) showed it's not visible at
+  all in practice — **always check a problematic cutout in its actual final context before
+  further micro-optimizing the isolated asset**, the bar is "invisible in the real
+  composition," not "flawless in isolation."
+  Final result (single file, per owner's cost-saving request): `assets/marketing/
+  catchy-2026-08/catchy-polo-short-sleeve-burgundy-green-white--social-square-1080x1080.png`.
+  Single-shirt Burgundy and original Black versions both still exist untouched.
+- **Built a new video concept**: `assets/marketing/video-2026-08/polo-trio-location-
+  popup.mp4` — 10s, 1080x1080, 30fps. Owner's brief: three-shirt (Burgundy center/Green
+  left/White right) hero, then out of nowhere a **popup fades in** announcing the new
+  location, holds ~3.5s so it's actually readable, then **morphs into a footer bar** (same
+  content, different container) rather than just disappearing — solves "the popup was easy
+  to miss" by giving the message a second, persistent life at the bottom. Owner also gave
+  explicit art direction on pacing: **not** everything entering one-by-one (reads as
+  robotic/AI-slideshow) and **not** everything appearing at once either (reads as flat) —
+  wanted "the sweet spot in between." Landed on **3 synchronized entrance beats** instead
+  of ~8 individually-staggered elements: beat 1 = brand chip + headline + tagline together
+  (frame 6), beat 2 = all three shirts + price ring together (frame 20, one shared
+  `spring()` call, not staggered left→center→right), beat 3 = product name + CTA together
+  (frame 34) — few enough beats to feel intentional/choreographed, more than one beat so it
+  still has a sense of build.
+  New file `marketing-video/src/DealVideoPopup.jsx` (existing `DealVideo.jsx`/`Root.jsx`
+  compositions untouched, this is a new component + a new `<Composition
+  id="PoloTrioLocationPopup">` added alongside the existing two). Built in Remotion rather
+  than the CSS/Puppeteer pipeline specifically *because* of the morph requirement — the
+  popup-to-footer transition is a literal interpolation of one DOM box's `top/left/width/
+  height/borderRadius` from modal-card values to full-width-footer values
+  (`interpolate(morphT, [0,1], [modalValue, footerValue])` per property, with a cubic
+  ease-out), which is precise and easy in Remotion's frame-driven model and would be
+  fragile to hand-time with CSS `@keyframes` percentages. Also added, for polish beyond
+  what was literally asked: while the popup/scrim is up, the whole background scene gets a
+  synced `blur()` + `brightness()` dim (driven by the same interpolated scrim-opacity value)
+  so attention is pulled to the popup the way a real modal would, and un-blurs/un-dims in
+  sync with the morph-to-footer. Green/White cutouts copied into
+  `marketing-video/public/` alongside the existing Black/Burgundy ones (all four now live
+  there). Nothing else was touched or deleted per explicit owner instruction this round.
+- **Video/animation work paused on this project** — owner decided not to move forward with
+  the popup/footer video concept (or video in general, for now) and said to go back to
+  **static pictures only**. Before stopping, extracted the whole animation pipeline (CSS+
+  Puppeteer screencast method, the Remotion setup + shape-morph technique, the background-
+  removal script, and the "2-4 synchronized beats" pacing principle from owner feedback)
+  into a **global, project-independent Claude Code skill**:
+  `C:\Users\User\.claude\skills\product-video-animation\` (`SKILL.md` +
+  `references/remove-bg.js`, `references/puppeteer-screencast-recorder.js`,
+  `references/remotion-skeleton.jsx`). This is reusable in any future project, not just
+  b-uniform — if video work resumes here or elsewhere, start from that skill rather than
+  re-deriving the pipeline from scratch. `marketing-video/` and all four video files in
+  `assets/marketing/video-2026-08/` are left in place (untouched, not deleted), just not
+  being actively extended for now.
+- **Ran competitor pricing research** against frenchtoast.com (owner-named competitor) for
+  every item on the current deal list, via WebSearch/WebFetch (caveat given to owner: French
+  Toast's site showed most items out of stock, so these are cached/search-snapshot prices,
+  not confirmed live checkout prices, and sizes span toddler→adult so ranges are wide).
+  Found B-Uniform is cheaper across the board vs French Toast's *list* prices (often
+  25–45%), but closer to a wash vs their *sale* prices — strongest "cheapest" claim for
+  Kids Sweatshirt/Adult Sweatshirt/Gym Shirt, weakest for Gym Pants (data too thin) and the
+  hoodie quarter-zip style. Owner has not yet said which comparisons to actually lean into
+  in poster copy.
+- **Deal-list scope finalized with owner:** Gym Shirts item dropped entirely (no plans to
+  make a poster for it). "Gym Pants" maps to the existing **Sweat Pants** product/photo
+  (`sweat-pants.png` family) — not a new/separate product.
+- **Latest static-poster iteration (current direction as of this entry):** owner asked to
+  go from 3 shirts back down to **2** — Navy and White only (both already carry the
+  catalog's circular Board of Education seal logo, so "must have circular logos" was
+  satisfied by the existing photos, no new asset work needed there). Removed the
+  `polo-short-sleeve-navy.png` background the same way as the others
+  (`remove-bg.js` → `polo-short-sleeve-navy-cutout.png`, verified by compositing onto a
+  contrasting test color). Price ring simplified: **deleted the struck-through "$16 was"
+  line entirely** and enlarged `$12` from 4.2vh to 6.4vh for readability, per instruction.
+  **Location redesign** — owner felt the footer-bar treatment still wasn't prominent enough
+  given it's meant to be "the main point of this poster." Researched actual poster-design
+  best practices (WebSearch) rather than guessing: high-contrast color block distinct from
+  the background, a visible border for separation, a focal-point graphic, bigger type than
+  surrounding text. Replaced the full-width footer with a **bordered, drop-shadowed,
+  slightly-tilted "stamp" callout** (white fill, thick gold border, pin emoji, bigger Anton
+  headline than before) positioned overlapping the lower hero area (not pinned to the very
+  bottom edge) so it reads as a focal point rather than a footnote.
+  **Layout bug hit while adding it**: the new stamp is `position:absolute` (correctly out
+  of normal flow), but the flow content below it (product name, CTA button) still wasn't
+  given enough room and got silently clipped by `.stage`'s `overflow:hidden` — not an
+  error, just missing pixels, only caught by actually looking at the rendered PNG. Fixed
+  by shrinking `.garment-pair` max-height (56vh → 33vh) and tightening the vertical rhythm
+  (stamp `bottom` offset, `.cta-row` margins) until everything fit inside 1080px again.
+  **Reusable lesson: whenever an absolutely-positioned overlay is added to a layout that
+  already fully occupies the canvas, re-check the flow elements below it for clipping —
+  the overlay not affecting flow doesn't mean the rest of the page still fits.**
+  Saved as a new file, nothing prior deleted: `assets/marketing/catchy-2026-08/
+  catchy-polo-short-sleeve-navy-white--social-square-1080x1080.png` (+
+  `polo-short-sleeve-navy-cutout.png` alongside the other cutout assets in that folder).
+- **Refined the navy/white poster further** (overwrote the same file — this is iteration on
+  the current in-progress design, not a new round to preserve separately): shirts enlarged
+  (`.garment-pair` max-height 33vh → 45vh), the location stamp shrunk back down (owner liked
+  the *concept* but the first pass was too big — width 70vw→58vw, headline 4vh→2.9vh, border/
+  padding/shadow all scaled down to match), and added a **5vh bottom safe-zone**
+  (`padding-bottom` on `.stage`) so the product name/CTA sit clear of the bottom edge —
+  owner flagged that area as "the red zone" (i.e. where social platforms' own UI — captions,
+  action buttons — commonly overlaps the bottom of a post image), which is a real platform
+  consideration worth remembering for every future poster/video export, not just this one.
 - Contact and Wholesale forms are front-end only — no backend wired up, so submissions
   don't currently reach anyone. Owner is deciding between Formspree/Web3Forms, a mailto
   fallback, or holding off until hosting is decided.
 - Footer/contact social links are still `href="#"` placeholders — need real URLs.
 - Policies page has generic placeholder legal text — needs business-reviewed copy.
 - No hosting/deployment set up yet (site only exists locally).
+- **Marketing deal posters**: only Polo Short Sleeve is done in the confirmed "catchy"
+  template (background-removed cutout, struck-through pricing, gold ring badge, sunburst
+  bg). Still need, before batching the template to the rest: (1) owner-supplied "was"
+  (struck-through) prices for Polo Long Sleeve ($14), Kids Sweatshirt ($15), Adult
+  Sweatshirt ($20), Hoodie Kids ($20)/Adult ($25), and Gym Pants/Sweat Pants ($17); (2)
+  owner's call on which French-Toast-comparison claims to actually surface in copy per
+  product. The `assets/marketing/deals-2026-08/` (5-poster "flat" set) and
+  `assets/marketing/posters-2026-08/` (3 layout concepts) directories are earlier,
+  superseded rounds — **owner said explicitly not to delete them**, keep as-is even though
+  the "catchy" template in `assets/marketing/catchy-2026-08/` is the current direction.
+- Video treatment (see above) exists only for Polo Short Sleeve, now in **two parallel
+  versions** (CSS/Puppeteer at `assets/marketing/video-2026-08/polo-short-sleeve-flash-
+  deal.mp4`, and Remotion at `...polo-short-sleeve-flash-deal-remotion.mp4`) — owner hasn't
+  yet said whether to standardize on one pipeline (Remotion is the intended long-term
+  direction per owner's ask, but nothing has been deleted) or extend either to the rest of
+  the catalog.
+- `marketing-video/` (the Remotion project) needs `npm install` run once before it will
+  render again in a fresh environment — `node_modules` is gitignored by design. Rendering
+  also needs `ffmpeg` on `PATH` (see the ffmpeg entry above) and ideally a full shell
+  restart so `PATH` picks it up automatically rather than needing the full winget path.
 
-**Next up:** waiting on the owner's decision for the forms backend; then real social
-links and policy copy; then deployment.
+**Next up:** get the remaining "was" prices + highlight priorities from the owner, then
+batch the confirmed "catchy" template (cutout photo + struck price + ring badge) across
+Polo Long Sleeve, Kids Sweatshirt, Adult Sweatshirt, Hoodies, and Gym Pants/Sweat Pants;
+get owner's verdict on the CSS-vs-Remotion video comparison and whether to extend video to
+the rest of the catalog. Longer-term: forms backend, real social links, policy copy, then
+deployment.
 
 > Update this log whenever a task is completed or a session ends — add newly finished
 > items to "Done", move resolved items out of "Known gaps", and refresh "Next up".
+
+## Marketing Campaign (context for a dedicated marketing session)
+
+The owner is starting a **separate Claude Code session focused purely on marketing**
+B-Uniform (this session stays focused on the site/codebase itself). Everything below is
+context that session needs — read this whole section before doing marketing work.
+
+### Business context for marketing
+- Physical store: **395 Broadway, Bayonne, NJ** (not 427 — see the corrected-address entry
+  above; 427 is stale and must never be reused). Hours: Everyday, 12:00 PM – 6:00 PM.
+- Business model: **B2B/wholesale-friendly reseller**, not consumer e-commerce — no prices
+  on the site, no checkout. The conversion path is the Wholesale quote form
+  (`wholesale.html`), which is now fully working end-to-end (see the forms-fixed section
+  above) and delivers to **info@b-uniform.com**.
+- Core local audience: schools, daycares, sports programs, and other resellers in the
+  Bayonne/Hudson County area — not just walk-in retail customers. Existing branded stock
+  (Bayonne Board of Education seal on several product photos) shows an existing
+  relationship with at least one real local school.
+- Existing marketing assets already built this project (do not recreate from scratch —
+  see the Progress Log above for full detail): deal posters and a video ad in
+  `assets/marketing/` (catchy-2026-08/, deals-2026-08/, posters-2026-08/, video-2026-08/),
+  plus a reusable global skill at `~/.claude/skills/product-video-animation/` for turning
+  any future poster into an animated MP4 (CSS/Puppeteer + Remotion pipelines, background-
+  removal script included).
+- Facebook Page (already exists, owner-provided):
+  https://www.facebook.com/p/B-Uniform-100063610751522/
+
+### Marketing skills installed (global, available in any session)
+A 49-skill marketing pack from https://github.com/coreyhaines31/marketingskills was
+installed **globally** at `~/.claude/skills/` (not project-scoped — available in every
+session on this machine) on 2026-08-20, alongside its shared `~/.claude/tools/` reference
+data that several skills depend on via relative paths. Covers ads, ad-creative, social,
+copywriting, cro, seo-audit, emails, cold-email, prospecting, analytics, public-relations,
+and many more (57 total skills now in the global folder counting pre-existing ones).
+**Run the `product-marketing` skill first, in the new session** — it creates
+`.agents/product-marketing.md`, a persistent context file every other marketing skill
+reads before acting, so the business context above only needs to be given once.
+
+### Recommended step-by-step plan (already discussed with the owner)
+1. `product-marketing` skill — one-time context setup.
+2. **Google Analytics** — not yet installed on the site at all (zero traffic tracking
+   currently exists). Owner was mid-setup creating a GA4 property at analytics.google.com
+   as of this entry; once they have the `G-XXXXXXXXXX` Measurement ID, wire it into all 32
+   HTML pages' `<head>` (same site-wide-edit pattern used for the email address change —
+   grep across `*.html collections/*.html products/*.html`, no single templated source).
+   This should happen **before** any paid ads run, or there's no way to measure results.
+3. **Facebook Page improvements** (owner asked for a full checklist, already given —
+   summarized here so it isn't re-derived from scratch):
+   - Rename page to include location keyword (e.g. "B-Uniform — School Uniforms, Bayonne
+     NJ"); set category to Clothing/School Supply Store; fill About section (address,
+     hours, phone, one-line pitch); set cover photo to a real in-store photo or one of the
+     existing deal posters (currently likely blank/default); add a "Get Quote"/"Contact
+     Us" CTA button linking to `wholesale.html`; enable reviews; website link → homepage
+     (`b-uniform.com`), not straight to the form.
+   - Content pillars for posting: Product/catalog 35%, In-store/behind-the-scenes 25%,
+     Local/community 20% (tag local schools, mention Bayonne), Seasonal urgency 15%
+     (back-to-school countdowns), Promotional 5% (the existing deal posters, used
+     sparingly).
+   - Realistic cadence for a single-location small business: **3–4 posts/week on fixed
+     days**, not daily — consistency over volume.
+   - Compliance notes: any pricing shown in a poster must be honored if a customer asks to
+     buy at that price (FTC); get permission before reposting a customer's name/photo as a
+     testimonial (FTC endorsement guidelines); products are children's uniforms, so ads
+     should target parents, not solicit children directly.
+4. **Paid local ads**: Meta Business Manager campaign, geo-radius targeted around 395
+   Broadway (~10–15 mile radius), using the existing poster/video creative, small starting
+   budget ($5–10/day test). Owner should already have (or be creating) a Meta Business
+   Manager tied to the Facebook Page above.
+5. **Google Business Profile**: owner confirmed one already exists (they initially
+   confused this with Google Analytics — it's a separate, already-set-up tool, just needs
+   optimizing, not creating).
+6. **Local SEO**: the `seo-audit`/`schema`/`ai-seo`/`site-architecture` skills apply here —
+   site currently has no local-business schema markup.
+7. Longer-term, lower-priority per the skills-report given to the owner: `community-
+   marketing` (Bayonne Facebook parent groups), `prospecting` + `cold-email` (this is
+   actually the core revenue channel — local schools/daycares as wholesale accounts, not
+   walk-in retail), `public-relations` (the "we moved to a bigger spot" story is a
+   legitimate local-press pitch, not just poster copy).
+
+### Known gap flagged during the marketing discussion
+Footer/contact social links across all 32 HTML pages are still `href="#"` placeholders
+(see "Known content gaps" near the top of this file) — now that a real Facebook Page URL
+exists, these should be updated to the real link once the owner also confirms an
+Instagram/other accounts (asked, not yet answered as of this entry).
