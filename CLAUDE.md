@@ -96,11 +96,22 @@ submissions currently reach anyone.
 
 ### Known content gaps
 
-- Social links in every footer/contact page are `href="#"` placeholders.
+- Social links in every footer/contact page are `href="#"` placeholders (Facebook is now
+  fixed — see Progress Log — Instagram/TikTok/Twitter still pending real accounts).
 - Policies page (shipping/returns/privacy/terms) has generic placeholder text, not
   business-reviewed copy.
 - No pricing anywhere by design (B2B quote-based model), so don't add prices without
   explicit instruction.
+- **Site gallery photos are outdated/incorrect.** `assets/img/site/gallery-2.jpeg`,
+  `gallery-3.jpeg`, `gallery-4.jpeg`, and `gallery-6.jpg` (used on both `index.html` and
+  `about.html`) are still old store photos — owner is getting new/correct ones from the
+  client and will specify exactly which file replaces which once received. Despite the
+  general "wait for instructions" guidance below, owner did explicitly identify one:
+  **`gallery-5.jpg` (the "flag" photo) has already been replaced** with
+  `Pictures/Photos Of Store/Store Front .jpeg` (the storefront shot showing the "395"
+  address) — done, alt text updated on both pages, don't redo. The remaining four are
+  still pending — **do not assume anything else in `Pictures/Photos Of Store/` is a ready
+  replacement** for them without the owner explicitly saying so file-by-file.
 
 ## Project Plan
 
@@ -984,6 +995,10 @@ Polo Long Sleeve, Kids Sweatshirt, Adult Sweatshirt, Hoodies, and Gym Pants/Swea
 get owner's verdict on the CSS-vs-Remotion video comparison and whether to extend video to
 the rest of the catalog. Longer-term: forms backend, real social links, policy copy, then
 deployment.
+
+**Also waiting on:** owner is getting updated store photos from the client to replace the
+outdated `gallery-2` through `gallery-6` site images (see "Known content gaps" above) —
+blocked until the owner provides file-by-file replacement instructions.
 
 > Update this log whenever a task is completed or a session ends — add newly finished
 > items to "Done", move resolved items out of "Known gaps", and refresh "Next up".
