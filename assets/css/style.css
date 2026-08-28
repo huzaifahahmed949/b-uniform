@@ -367,6 +367,13 @@ section { padding: 72px 0; }
 .gallery-main.zoomed img { transform: scale(1.6); }
 .pd-style { font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-burgundy); font-weight: 700; }
 .pd-color { display: flex; align-items: center; gap: 10px; margin: 18px 0 10px; font-size: 0.92rem; }
+.pd-price-note {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--color-gold); color: var(--color-navy-dark);
+  font-weight: 700; font-size: 0.95rem; padding: 10px 18px; border-radius: var(--radius-sm);
+  margin: 10px 0 4px;
+}
+.pd-price-note a { color: var(--color-navy-dark); text-decoration: underline; }
 .color-swatches { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; flex-wrap: wrap; }
 .swatch {
   width: 30px; height: 30px; border-radius: 50%; display: inline-block;
