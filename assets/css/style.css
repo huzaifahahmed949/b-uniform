@@ -121,6 +121,10 @@ section { padding: 72px 0; }
   letter-spacing: 0.02em;
 }
 .promo-bar strong { color: var(--color-gold-light); }
+@media (max-width: 640px) {
+  .promo-bar { padding: 8px 12px; font-size: 0.76rem; line-height: 1.4; }
+  .promo-bar .promo-full { display: none; }
+}
 
 .site-header {
   position: sticky;
