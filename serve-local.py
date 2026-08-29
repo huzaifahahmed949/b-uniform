@@ -21,7 +21,11 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
         else:
             candidate = fs_path + ".html"
 
-        if not os.path.exists(fs_path) and os.path.isfile(candidate):
+        # "collections" collides with the collections/ subfolder on disk;
+        # mirror the .htaccess special-case for it.
+        if fs_path.rstrip("/") == "collections" and os.path.isfile("collections.html"):
+            self.path = "/collections.html"
+        elif not os.path.exists(fs_path) and os.path.isfile(candidate):
             self.path = "/" + candidate
 
         return super().do_GET()
