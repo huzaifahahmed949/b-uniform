@@ -610,9 +610,30 @@ table.size-table tr:nth-child(even) { background: var(--color-light); }
 @media (max-width: 640px) {
   .form-grid { grid-template-columns: 1fr; }
   .hero-content { padding: 70px 20px; }
-  section { padding: 48px 0; }
+  section { padding: 40px 0; }
+  .section-head { margin-bottom: 28px; }
   .cta-band { padding: 36px 24px; }
   .modal { padding: 24px; }
+
+  /* Denser product/category grids so mobile shows more per screen instead of
+     one full-width card per row */
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-info { padding: 10px 10px 12px; gap: 4px; }
+  .product-thumb img { padding: 8px; }
+  .product-style { font-size: 0.64rem; }
+  .product-info h3 { font-size: 0.86rem; }
+  .size-range { font-size: 0.7rem; }
+  .product-card .btn { padding: 8px 12px; font-size: 0.82rem; margin-top: 6px; }
+
+  .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .category-card h3 { font-size: 0.95rem; }
+  .category-card p { font-size: 0.74rem; }
+
+  .gallery-masonry { columns: 2 140px; column-gap: 10px; }
+  .gallery-masonry img { margin-bottom: 10px; }
+
+  .trust-grid { gap: 14px; }
+  .testimonial-grid { gap: 14px; }
 }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
@@ -621,4 +642,5 @@ table.size-table tr:nth-child(even) { background: var(--color-light); }
   .hero-stats { gap: 20px; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
   .cta-band { padding: 28px 20px; }
+  section { padding: 32px 0; }
 }
