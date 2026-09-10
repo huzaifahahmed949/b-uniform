@@ -6,10 +6,12 @@ $SMTP_HOST = 'smtp.hostinger.com';
 $SMTP_PORT = 465;                    // SSL
 $SMTP_USER = 'info@b-uniform.com';
 
-// SMTP password is kept OUT of the repo. Create assets/php/config.php on the
-// server (see config.sample.php) returning ['smtp_password' => '...'].
-$config    = @include __DIR__ . '/config.php';
-$SMTP_PASS = is_array($config) ? ($config['smtp_password'] ?? '') : '';
+// SMTP password (and other secrets) are kept OUT of the repo. Create
+// assets/php/config.php on the server (see config.sample.php).
+$config          = @include __DIR__ . '/config.php';
+$SMTP_PASS       = is_array($config) ? ($config['smtp_password'] ?? '') : '';
+$SENDER_API_KEY  = is_array($config) ? ($config['sender_api_key'] ?? '') : '';
+$SENDER_GROUP_ID = is_array($config) ? ($config['sender_group_id'] ?? '') : '';
 
 // Honeypot: real visitors never fill this hidden field, bots often do.
 if (!empty($_POST['bu_hp_check'] ?? '')) {
@@ -88,11 +90,76 @@ if ($SMTP_PASS !== '') {
     }
 }
 
+// Newsletter signups also get added to the Sender.net mailing list. This is
+// best-effort: it never blocks or fails the form response, it just logs.
+if ($formType === 'newsletter' && $SENDER_API_KEY !== '' && $SENDER_GROUP_ID !== '') {
+    $senderErr = '';
+    if (!sender_add_subscriber($SENDER_API_KEY, $SENDER_GROUP_ID, $email, $senderErr)) {
+        error_log('B-Uniform Sender.net subscribe failed: ' . $senderErr);
+    }
+}
+
 if ($ok) {
     echo json_encode(['success' => true]);
 } else {
     http_response_code(500);
     echo json_encode(['success' => false, 'error' => 'The message could not be sent.']);
+}
+
+/* ---------------- Sender.net subscriber sync ---------------- */
+
+function sender_add_subscriber($apiKey, $groupId, $email, &$err) {
+    $err     = '';
+    $payload = json_encode(['email' => $email, 'groups' => [$groupId]]);
+    $headers = [
+        'Authorization: Bearer ' . $apiKey,
+        'Content-Type: application/json',
+        'Accept: application/json',
+    ];
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init('https://api.sender.net/v2/subscribers');
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $payload,
+            CURLOPT_HTTPHEADER     => $headers,
+            CURLOPT_TIMEOUT        => 15,
+        ]);
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlErr  = curl_error($ch);
+        curl_close($ch);
+        if ($response === false) {
+            $err = "curl error: $curlErr";
+            return false;
+        }
+    } else {
+        $context = stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => implode("\r\n", $headers),
+                'content' => $payload,
+                'timeout' => 15,
+                'ignore_errors' => true,
+            ],
+        ]);
+        $response = @file_get_contents('https://api.sender.net/v2/subscribers', false, $context);
+        if ($response === false) {
+            $err = 'request failed';
+            return false;
+        }
+        $httpCode = 200;
+        if (isset($http_response_header[0]) && preg_match('~\s(\d{3})\s~', $http_response_header[0], $m)) {
+            $httpCode = (int) $m[1];
+        }
+    }
+
+    if ($httpCode >= 200 && $httpCode < 300) {
+        return true;
+    }
+    $err = "HTTP $httpCode: $response";
+    return false;
 }
 
 /* ---------------- Minimal dependency-free SMTP client ---------------- */
